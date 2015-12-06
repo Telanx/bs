@@ -1,0 +1,99 @@
+﻿@media screen and (max-width: 1100px){ /*当屏幕尺寸小于1024px时，应用下面的CSS样式*/
+  .nav-center{
+	width:100%;
+  }
+  .content-center{
+	width:100%;
+	margin:0 auto;
+	}
+}
+@media screen and (min-width: 1100px) { /*当屏幕尺寸大于1024px时，应用下面的CSS样式*/
+  .nav-center{
+	width:89%;
+	margin:0 auto;
+  }
+  .content-center{
+	width:89%;
+	margin:0 auto;
+	}
+}
+/***公共样式***/
+*{
+	margin:0;
+	padding:0;
+}
+body{
+	overflow-x:hidden;
+}
+a:hover{
+	text-decoration:underline;
+}
+
+#nav-top{
+height:70px;
+background:#eee;
+box-shadow:0 1px 1px rgba(0,0,0,0.1);
+//min-width:936px;
+}
+.nav-logo{
+height:70px;
+width:300px;
+float:left;
+overflow:hidden;
+}
+.nav-logo>img{
+height:70px;
+width:300px;
+}
+.nav-title{
+font-size:25px;
+line-height:70px;
+float:left;
+}
+.nav-user{
+height:70px;
+float:right;
+}
+#content{
+background:#fff;
+min-height:586px;
+//min-width:936px;
+}
+
+.content-banner{
+height:260px;
+}
+#footer{
+background:#eee;
+box-shadow:0 -1px 1px rgba(0,0,0,0.2);
+padding-top:25px;
+height:45px;
+//min-width:936px;
+}
+#footer p{
+line-height:0;
+}
+.bread .active{
+color:#000;
+}
+
+.login-btn{
+	margin-top:20px;
+	margin-right:40px;
+	height:35px;
+}
+.login-btn a{
+	color:rgb(0,170,136);
+}
+.login-btn a:hover{
+	color:#fff;
+}
+.user-info{
+	padding:15px;
+}
+.user-home{
+ line-height:40px;
+}
+.icon-logout{
+	margin:20px;
+}
