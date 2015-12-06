@@ -1,0 +1,73 @@
+<html>
+<head>
+<meta charset='utf-8' />
+<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="__LIB__/pintuer/pintuer.css">
+<link rel="stylesheet" href="__CSS__/menu.css">
+
+<script src="__LIB__/pintuer/jquery.js"></script>
+<script src="__LIB__/pintuer/pintuer.js"></script>
+<style type='text/css'>
+*{
+	font-family:'微软雅黑';
+	padding:0;
+	margin:0;
+}
+.top{
+	text-align:center;
+	height:45px;
+	font-size:30px;
+	background:rgb(72,145,198);
+	color:#fff;
+}
+.content{
+	padding-top:10px;
+}
+.content>.left{
+	border-right:1px solid #aaa;
+}
+.head{
+	background:rgb(72,145,198);
+	color:#fff;
+}
+
+.panel{
+	margin:10px 0;
+}
+.panel-head{
+	padding:0;
+}
+</style>
+</head>
+<body>
+	<div class='top'>学生进度日志反馈</div>
+	<div class='content line'>
+		<div class='x3 left'>
+			<div class='head'>基本信息概览</div>
+			<div class='body'>
+				<!---基本信息概览-->
+				<p>学生：<b>{$log.sname}</b></p>
+				<p>课题：<b>{$log.bsname}</b></p>
+				<p>提交日志次数：<font color=red>{$log.count}</font></p>
+				<p>最近一次提交时间:<font color=red>{$log.lasttime}</font></p>
+			</div>
+		</div>
+		<div class='x9 right'>
+			<div class='head'>全部日志</div>
+			<div class='body'>
+				<volist name='loglist' id='loglist'>
+					<div class='line panel'>
+						<div class='panel-head'>{$i}#&nbsp;&nbsp;{$loglist.time}</div>
+						<div class='panel-body'>
+							{$loglist.ct}
+						</div>
+					</div>
+				</volist>
+					
+					
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>

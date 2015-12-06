@@ -1,0 +1,6 @@
+1.配置数据库
+修改bs/ThinkPHP/Conf/convention.php文件
+找到/* 数据库设置 */，配置好数据库
+2.表的初始化
+从phpmyadmin导入table.sql进行表的初始化
+3.管理员账号admin密码123456

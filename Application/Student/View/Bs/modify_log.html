@@ -1,0 +1,30 @@
+<html>
+<head>
+<link rel="stylesheet" href="__LIB__/pintuer/pintuer.css">
+<style type='text/css'>
+</style>
+</head>
+<body>
+<form action="" method='POST'>
+	<div class='line'>
+		<div class='x1'>序号</div><div class='x8'>{$log.id}</div>
+	</div>
+	<div class='line'>
+		<div class='x1'>时间</div><div class='x8'>{$log.time}</div>
+	</div>
+	<div class='line'>
+		<div class='x1'>内容</div><div class='x8'>
+			<textarea class='input' name='ct' style='height:205px'>{$log.ct}</textarea>
+		</div>
+	</div>
+	<div class='line'>
+	<div class='alert alert-red text-center error' {$msg?'':'hidden'}>{$msg}</div>
+	</div>
+	<div class='line submit'>
+		<input type='submit' class='button button-block bg-main' value='更新'>
+	</div>
+	<input name='id' value="{$log.id}" hidden>
+	
+</form>
+</body>
+</html>

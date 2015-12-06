@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>毕业设计(论文管理系统)系统初始化</title>
+    <meta name="keywords" content="毕业设计" />
+    <meta name="description" content="论文管理系统" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="__LIB__/pintuer/pintuer.css">
+	<script type='text/javascript' src='__LIB__/pintuer/jquery.js'></script>
+	<script type='text/javascript'>
+	$(function(){
+		//检查用户表情况
+		var tableList=['user_student','user_teacher','user_admin','home_plan','home_doc','home_link','home_news','home_pic',
+		'bs_kt','bs_xt','bs_student_log','bs_kt_sel','sys_time','user_student_old','user_teacher_old','bs_kt_old','bs_xt_old','bs_student_log_old'];
+		checkTable(tableList,0);
+		function checkTable(list,i){
+			var server = "{:U('Home/Start/init')}";
+			var table = list[i];
+			var data = {type:'table',table:table};
+			$.post(server,data,function(r){
+				var msg='';
+				switch(r.status){
+					case 1:msg='<p><font color=#0f0>'+table+'已经初始化成功！√</font></p>';break;
+					case 0:msg='<p><font color=#f00>'+table+'初始化失败！X</font></p>';break;
+				}
+				$('#tableInit').append(msg);
+				checkTable(list,i++);
+			});
+		}
+	});
+	</script>
+</head>
+<body>
+<h1>系统初始化</h1>
+<div class='panel'>
+	<div class='panel-head'>第一步：初始化表</div>
+	<div class='panel-body'>
+		<div class='line'>
+			<div class='x6' style='border-right:1px solid #aaa'>
+				<p>用户表:user_student、user_teacher、user_admin</p>
+				<p>首页模块表：home_plan、home_doc、home_link、home_news、home_pic</p>
+				<p>毕设信息表：bs_kt bs_xt bs_student_log</p>
+				<p>系统配置表：bs_kt_sel sys_time</p>
+				<p>历史数据表：user_student_old user_teacher_old bs_kt_old bs_xt_old bs_student_log_old </p>
+				
+			</div>
+			<div id='tableInit' class='x6'>
+			
+			</div>
+			
+		</div>
+	</div>
+</div>
+<div class='panel'>
+	<div class='panel-head'>第二步：设置管理员账号密码</div>
+	<div class='panel-body'>
+		管理员账号：<input class='input' name='user' value='bs_admin'>
+		管理员密码：<input class='input' name='pwd'>
+		确认密码：<input class='input' name='pwd2'>
+		<button class='button bg-main'>确认</button>
+	</div>
+</div>
+<!---
+<div class="progress progress-big progress-striped active">
+  <div class="progress-bar bg-green" style="width:40%;">进度：40%</div>
+  <div class="progress-bar bg-blue" style="width:30%;">进度：30%</div>
+  <div class="progress-bar bg-yellow" style="width:20%;">进度：20%</div>
+  <div class="progress-bar bg-red" style="width:10%;">进度：10%</div>
+</div>
+--->
+</body>
+</html>

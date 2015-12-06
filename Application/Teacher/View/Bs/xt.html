@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>毕业设计(论文管理系统)</title>
+    <meta name="keywords" content="毕业设计" />
+    <meta name="description" content="论文管理系统" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="__LIB__/pintuer/pintuer.css">
+	<link rel="stylesheet" href="__CSS__/menu.css">
+	<style type='text/css'>
+	td a{
+		text-decoration:underline;
+	}
+	.highlight{
+		background:rgb(156,235,180);
+	}
+	</style>
+    <script src="__LIB__/pintuer/jquery.js"></script>
+    <script src="__LIB__/pintuer/pintuer.js"></script>
+	<script src="__JS__/menu.js"></script>
+	<!----IE9以下增加media query-->
+    <!--[if lt IE 9]>
+	<script src="__LIB__/pintuer/respond.js"></script>
+	<![endif]-->
+    <script type='text/javascript'>
+	$(function(){
+	
+	/***相关链接处理***/
+		$('.container-popup').find('.popup-title-close').bind('click',function(e){
+			popup.hide();
+		})
+		$('.container-popup').on('click','.btn-cancel',function(){popup.hide();})
+		
+	var mask=$('.mask'),
+	container=$('.container-popup'),
+	title=$('.container-popup').find('.popup-title-text'),
+	body=$('.container-popup>.popup-body');
+	var popup=new pop(mask,container,title,body);
+	//查看学生基本信息
+	$('.viewuser').click(function(e){
+		var user=$(e.target).attr('data-id');
+		$.post("{:U('Teacher/Bs/student_handler')}",{type:'view',user:user},function(r){
+                if(!r.length){alert('查看用户详细信息失败！');return false;}
+                //显示用户基本信息
+                r=r[0];
+                var user_info_html =
+                '<div class="user_info" style="width:400px;margin:20px auto">\
+                <div class="info-left">\
+                    <div class="pic" style="float:left;width:195px;height:195px">\
+                        <img width="160px" height="195px"\ src="'+(r.pic||'https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=801265354,741403095&fm=58')+'"></div>\
+                    <div class="info_right">\
+                        <table style="line-height:40px">\
+                        <tr><td>学号号：</td><td>'+r.user+'</td></tr>\
+                        <tr><td>姓名：</td><td>'+(r.name||'-')+'</td></tr>\
+                        <tr><td>班级：</td><td>'+(r.class||'-')+'</td></tr>\
+                        <tr><td>状态：</td><td>'+(r.status||'-')+'</td></tr>\
+                        <tr><td>手机：</td><td>'+(r.cellphone||'-')+'</td></tr>\
+                            </table>\
+                    </div>\
+        </div>\
+                <div class="contact">\
+                    <div class="qqmail">\
+                        <p><span class="icon-qq text-big">QQ：</span>'+(r.qq||'-')+'\
+                        <span class="icon-envelope text-big">邮箱：</span>'+(r.email||'-')+'</p>\
+                    </div>\
+        </div>\
+        </div>';
+        popup.setBody(user_info_html).setTitle('个人详细信息').setCss({marginTop:'150px',width:'520px',height:'420px'}).show();
+            });
+	})
+	//查看任务书和报审表
+	$('.view').on('click',function(e){
+		var url='';
+		var bid=$(this).attr('data-bid');
+		var sid = $(this).attr('data-sid');
+		if($(e.target).hasClass('viewrw'))url="{:U('Home/Bs/viewrw')}?bid="+bid+"&sid="+sid;
+		else if($(e.target).hasClass('viewkt'))url="{:U('Home/Bs/viewkt')}?bid="+bid;
+		if(url!='')window.open(url);
+	})
+		
+		
+	})
+	</script>
+  </head>
+<body>
+	<!---全屏--->
+	<div id='content'>
+		<div class='layout admin'>
+			<!--左侧菜单栏-->
+			<div class='x2 left'>
+				<div class='line user-info'>
+					<div class='user-img'><img src='{$user[pic]?$user[pic]:"https://ss1&#46;baidu&#46;com/6ONXsjip0QIZ8tyhnq/it/u=801265354,741403095&fm=58"}' class='img-border radius-circle' width=100 height=100></div>
+					<div class='user-name'><p class='text-center'>{$user.name}</p>
+					<p class='text-center user-type'>
+							<switch name="ttype" >
+							<case value="1">教师</case>
+							<case value="2">系主任</case>
+							<case value='3'>院长</case>
+							<default />教师
+							</switch>
+						</p></div>
+				</div>
+					<if condition="($ttype gt 1)"> 
+					<include file='./Templates/menu_teacher_manager.html' />
+				<else /> 
+					<include file='./Templates/menu_teacher.html' />
+				</if>
+			</div>
+			<!---右侧具体内容-->
+			<div class='x10 right'>
+				<div class='line'>
+				<!---选题情况--->
+					<div style='height:20px'></div>
+					<div class="tab border-main">
+					<div class="tab-head">
+					<strong>选题查询</strong>
+					
+					<ul class="tab-nav">
+					<li class='active'><a href="#">选题情况</a></li>
+					
+					
+					</ul>
+					</div>
+					<div class="tab-body">
+					<div class="tab-panel active">
+					<!---显示课题审核情况-->
+					<div class="alert alert-yellow"><span class="close rotate-hover"></span><strong>提示：</strong>点击学生学号查看所选学生信息！</div>
+					<table class='table table-hover'>
+						<tr><th>课题名称</th><th>审核状态</th><th>选题学生</th><th>学号</th><th>选题时间</th><th>查看报表</th></tr>
+						<volist id='xt' name='xt'>
+							<tr class={$xt['sname']?'highlight':''}><td>{$xt.name}</td><td>
+							
+						<if condition="($xt['status'] gt 1)">
+							<if condition="($xt['status'] gt 2)">
+								<font color=green>已通过院审核</font>
+							<else />
+								<font color=blue>已通过系审核</font>
+							</if>
+						<else /> <font color=red>待审核</font>
+						</if>
+						
+							</td><td><a href=# class='viewuser' data-id={$xt.user}>{$xt.sname}</a></td><td>{$xt.user}</td><td>{$xt.time}</td><td class='view' data-bid="{$xt.bid}" data-sid="{$xt.user}"><a href=# class='viewrw'>任务书</a>|<a href=# class='viewkt'>报审表</a></td></tr>
+						</volist>
+					</table>
+					
+						
+					</div>
+					
+					</div>
+					</div>
+					
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+  <!---footer--->
+  <div id='footer'>
+	<p class='text-center'>CopyRight2015毕业设计(论文)管理系统</p>
+  </div>
+  <!---全局遮罩层-->
+  <div class='mask' style='position:fixed;top:0;width:100%;height:100%;background:rgba(0,0,0,0.6);display:none;'>
+		  <!---弹出层--->
+		<div class='container-popup' style='position:relative;width:300px;margin:auto;margin-top:200px;display:none'>
+		<div class='popup-title' style='width:100%;height: 38px;color:#fff;padding:0 10px;line-height: 38px;position: relative;background:rgb(51,51,51);background: -webkit-gradient(linear,left top,right top,from(#000),to(#767676));border-bottom: 1px solid #d1d6dd;'>
+		<span class='popup-title-text'>标题</span>
+		<span class='popup-title-close icon-times' style='float:right;cursor:pointer;'></span>
+		</div>
+		<div class='popup-body' style='background:#fff;color:#000;min-height:100px;padding:10px'>
+		</div>
+		</div>
+  </div>
+
+  
+  
+</body>
+</html>
