@@ -210,7 +210,7 @@ class IndexController extends Controller {
 		if($type=='upload'){
 				if(count($_FILES)>0){
 					$f = $_FILES['upload'];
-					$uploadDir = 'upload/doc/';
+					$uploadDir = 'bs/upload/doc/';
 					$filename = I('post.filename');
 					$ext = pathinfo($f['name'])['extension'];
 					$saveFileName = $uploadDir . date('Ymd').'_'.md5(uniqid(rand())).'.'.$ext;

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="zh-cn">
 <head>
     <title>毕业设计(论文管理系统)</title>
@@ -6,8 +6,8 @@
     <meta name="description" content="论文管理系统" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
-    <link rel="stylesheet" href="__LIB__/pintuer/pintuer.css">
-	<link rel="stylesheet" href="__CSS__/index.css">
+    <link rel="stylesheet" href="/bs/Public/lib/pintuer/pintuer.css">
+	<link rel="stylesheet" href="/bs/Public/css/index.css">
 	<style type='text/css'>
 	body{
 		overflow-x:hidden;
@@ -18,10 +18,10 @@
 		overflow: hidden;
 	}
 	</style>
-    <script src="__LIB__/pintuer/jquery.js"></script>
-    <script src="__LIB__/pintuer/pintuer.js"></script>
+    <script src="/bs/Public/lib/pintuer/jquery.js"></script>
+    <script src="/bs/Public/lib/pintuer/pintuer.js"></script>
     <!--[if lt IE 9]>
-	<script src="__LIB__/pintuer/respond.js"></script>
+	<script src="/bs/Public/lib/pintuer/respond.js"></script>
 	<![endif]-->
 	
     <script type='text/javascript'>
@@ -32,22 +32,22 @@
   <!---导航栏-->
   <div id='nav-top'>
 	<div class='nav-center'>
-		<div class='hidden-l nav-logo'><img src='__IMG__/logo.jpg'/></div>
+		<div class='hidden-l nav-logo'><img src='/bs/Public/img/logo.jpg'/></div>
 		<div class='nav-title'>毕业设计(论文)管理系统</div>
 		<div class='nav-user'>
 			<!---已经登录--->
-			<div class="user-info" {$user['login']?'':'hidden'}>
-                    <a class="user-home" href="{$user.home}">
-                        <img width='40' height='40' class="img-border" src="{$user.pic}" alt="您的头像">
-                        <span class="user-name textoverflow">{$user.name}</span>
+			<div class="user-info" <?php echo ($user['login']?'':'hidden'); ?>>
+                    <a class="user-home" href="<?php echo ($user["home"]); ?>">
+                        <img width='40' height='40' class="img-border" src="<?php echo ($user["pic"]); ?>" alt="您的头像">
+                        <span class="user-name textoverflow"><?php echo ($user["name"]); ?></span>
                     </a>
-					<a  href="{:U('Home/Login/logout')}" title="退出" class='icon-logout'><span class="icon-power-off text-large"></span></a>                    
+					<a  href="<?php echo U('Home/Login/logout');?>" title="退出" class='icon-logout'><span class="icon-power-off text-large"></span></a>                    
          
               
 			</div>
 			<!----没登录--->
-			<div class="button border-main login-btn {$user[login]?'hidden':''}">
-				<a href={:U('Home/Login/index')}><span class='icon-user text-big'></span>登录</a> 
+			<div class="button border-main login-btn <?php echo ($user[login]?'hidden':''); ?>">
+				<a href=<?php echo U('Home/Login/index');?>><span class='icon-user text-big'></span>登录</a> 
 			</div>
 		</div>
 	</div>
@@ -88,9 +88,7 @@
 						<div class="panel-head bg-main">时间安排</div>
 						<div class="panel-body">
 							<marquee id="affiche" align="left" behavior="scroll" direction="up" height="170" width="100%" hspace="50" vspace="20" loop="-1" scrollamount="10" scrolldelay="200" onMouseOut="this.start()" onMouseOver="this.stop()">
-								<volist name='plan' id='plan'>
-									<p>{$plan.ttime}    {$plan.content}</p>
-								</volist>
+								<?php if(is_array($plan)): $i = 0; $__LIST__ = $plan;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$plan): $mod = ($i % 2 );++$i;?><p><?php echo ($plan["ttime"]); ?>    <?php echo ($plan["content"]); ?></p><?php endforeach; endif; else: echo "" ;endif; ?>
 							</marquee>
 						</div>
 					</div>
@@ -106,12 +104,10 @@
 						<div class="panel-head bg-main bg-inverse">
 						<span class='icon-bullhorn'></span>
 						通知公告
-						<span style='float:right'><a href="{:U('Home/Index/news')}">更多>></a></span>
+						<span style='float:right'><a href="<?php echo U('Home/Index/news');?>">更多>></a></span>
 						</div>
 						<div class="panel-body">
-							<volist name='news' id='news'>
-								<p>[{$news['publishtime']|substr=5,5}]<a href="{:U('Home/Index/newsdetail')}?id={$news.id}" target='_blank'>{$news.title}</a></p>
-							</volist>
+							<?php if(is_array($news)): $i = 0; $__LIST__ = $news;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$news): $mod = ($i % 2 );++$i;?><p>[<?php echo (substr($news['publishtime'],5,5)); ?>]<a href="<?php echo U('Home/Index/newsdetail');?>?id=<?php echo ($news["id"]); ?>" target='_blank'><?php echo ($news["title"]); ?></a></p><?php endforeach; endif; else: echo "" ;endif; ?>
 						</div>
 					</div>
 				</div>
@@ -120,12 +116,10 @@
 						<div class="panel-head bg-main bg-inverse">
 						<span class='icon-download'></span>
 						资料下载
-						<span style='float:right'><a href="{:U('Home/Index/file')}">更多>></a></span>
+						<span style='float:right'><a href="<?php echo U('Home/Index/file');?>">更多>></a></span>
 						</div>
 						<div class="panel-body">
-						<volist name='file' id='file'>
-						<p>[{$file['publishtime']|substr=5,5}]<span class='icon-file-{$file.type}-o'></span><a href='/{$file.fileurl}'>{$file.title|urldecode}</a></p>
-						</volist>
+						<?php if(is_array($file)): $i = 0; $__LIST__ = $file;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$file): $mod = ($i % 2 );++$i;?><p>[<?php echo (substr($file['publishtime'],5,5)); ?>]<span class='icon-file-<?php echo ($file["type"]); ?>-o'></span><a href='/<?php echo ($file["fileurl"]); ?>'><?php echo (urldecode($file["title"])); ?></a></p><?php endforeach; endif; else: echo "" ;endif; ?>
 						
 						</div>
 					</div>
@@ -135,12 +129,10 @@
 						<div class="panel-head bg-main bg-inverse">
 						<span class='icon-link'></span>
 						相关链接
-						<span style='float:right'><a href="{:U('Home/Index/link')}">更多>></a></span>
+						<span style='float:right'><a href="<?php echo U('Home/Index/link');?>">更多>></a></span>
 						</div>
 						<div class="panel-body">
-							<volist name='link' id='link'>
-							<p class="text-link"><span class='icon-globe text-big' style='margin-right:10px'></span><a href="{$link.linkurl}" target="_blank">{$link.title}</a></p>
-							</volist>
+							<?php if(is_array($link)): $i = 0; $__LIST__ = $link;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$link): $mod = ($i % 2 );++$i;?><p class="text-link"><span class='icon-globe text-big' style='margin-right:10px'></span><a href="<?php echo ($link["linkurl"]); ?>" target="_blank"><?php echo ($link["title"]); ?></a></p><?php endforeach; endif; else: echo "" ;endif; ?>
 						</div>
 					</div>
 				</div>
