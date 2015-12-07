@@ -228,6 +228,7 @@ class UserController extends Controller {
 		$this->assign('user',$user);
 		$this->display();
 	}
+	//修改教师信息
 	public function teacher_edit(){
 		$this->login_check(1);
 		$model_sel = M('bs_kt_sel');
