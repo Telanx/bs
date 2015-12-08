@@ -89,7 +89,7 @@
 		var url ="{:U('Admin/Bs/kt_handler')}";
 		$.post(url,{t:t,k:k,d:d,p:p},function(res){
 			$('.search-result-table tbody>:not(.th)').remove();//清空数据
-			var rl = res.r.length;
+			//var rl = res.r.length;
 			var p_c = res.page.c_p,
 			p_t = res.page.t_p,
 			r = res.r;
@@ -372,16 +372,21 @@
 									<option value='0'>全部</option>
 								</select>
 								<button type='submit'  name='search' class='button bg-main' style='margin-left:10px' >搜索</button>
+                                <button type='submit'  name='search' class='button bg-main' style='margin-left:10px' >排序</button>
 							
 							
 						</form>
+                            <input type="button" name="teacher-sort" id="teacher-sort" class="button bg-main" style="margin-left:10px" value="按教师排序"> </input>
 						</div>
 						<!--结果区域--->
 						<div class='right-result'>
 							<div class='right-result-head'></div>
 							<div class='right-result-body'>
-								<table class="table table-hover search-result-table"><tr class='th'><th>课题名</th><th>指导老师</th><th>所属研究所</th><th>选题学生</th></tr>
-								</table>
+								<table class="table table-hover search-result-table" id="show-table"><tr class='th'>
+                                    <thread>
+                                    <th>课题名</th><th>指导老师</th><th>所属研究所</th><th>选题学生</th></tr>
+                                    </thread>
+                                    </table>
                                 <!---start-->
                 
                                 <!---end---->
@@ -399,8 +404,31 @@
 							</div>
 						</div>
 					</div>
-				
-					
+
+                    <script>
+                        window.onload=function(){
+                            var oTab=document.getElementById("show-table");	//获取表格
+                            var oBtn=document.getElementById("teacher-sort");	//获取排序按钮，方便下面的点击操作
+
+                            oBtn.onclick=function(){
+                                var arr=[];		//定义一个空的数组
+                                for(var i=0;i<oTab.tBodies[0].rows.length;i++){
+                                    arr[i]=oTab.tBodies[0].rows[i];		//把表格的所有行数都存到arr数组里
+                                }
+                                arr.sort(function(tr1,tr2){		//这里传入两个参数用于比较
+                                    var n1=tr1.cells[1].innerHTML;
+                                    //document.getElementById("demo").innerHTML=n1;
+                                    var n2=tr2.cells[1].innerHTML;
+                                    if (n1>n2)
+                                        return -1;
+                                    else return 1	;
+                                });
+                                for(var i=0;i<arr.length;i++){
+                                    oTab.tBodies[0].appendChild(arr[i]);	//把上面sort排好序的元素一行行地按顺序重新插入到表格中
+                                }
+                            };
+                        };
+                    </script>
 					
 				</div>
 			</div>
