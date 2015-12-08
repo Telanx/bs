@@ -243,7 +243,7 @@ class UserController extends Controller {
 				$pwd2 = I('post.pwd2');
 				$data = I('post.');
 				$status = I('post.status');
-				echo "<h1> $status </h1>";
+
 				if(trim($pwd)!=trim($pwd2))$msg = '2次密码输入不一致，请重试！';
 				else if(trim($pwd)=='')unset($data['pwd']);//为空则不需要更改密码
 				else{
@@ -256,6 +256,8 @@ class UserController extends Controller {
 					$model_pwd->where("user='$user'")->save($d);
 					
 				}
+				$tmp = $data['status'];
+				echo "<h1> $tmp </h1>";
 				$rs_user = $model_user->where("user='$user'")->save($data);
 				if($rs_user)$msg='更新成功！';
 				else $msg = '更新失败！';
