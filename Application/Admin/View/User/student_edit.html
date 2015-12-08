@@ -72,7 +72,7 @@
 		
 		<div class='msg'>{$user.msg}</div>
 		<script>
-			var dep_list ={$class.v};
+			/*var dep_list ={$class.v};
 			var obj = document.getElementById("dep-list");
 
 			for (var i=0;i<dep_list.length;i++)
@@ -80,7 +80,7 @@
 				var option = document.createElement('option');
 				option.innerHTML = dep_list[i];
 				obj.appendChild(option);
-			}
+			}*/
 		</script>
 		<script type='text/javascript'>
 			$(function(){
@@ -88,7 +88,7 @@
 				var dep ="{$user['class']==null?'计科一班':$user['class']}";
 				(function(l,d,dom){$.each(l,function(i,e){dom.append('<option value='+e+' '+(e==d?'selected':'')+'>'+e+'</option>');})})(dep_list,dep,$('#dep-list'));
 
-				//var s = {$user.status};同样暂时是空值
+				var s = String.fromCharCode({$user.status}); //同样暂时是空值
 				$('input[name=status]:eq('+(1-s)+')').attr('checked',true);
 
 				$('.btn-confirm').click(function(e){

@@ -256,8 +256,7 @@ class UserController extends Controller {
 					$model_pwd->where("user='$user'")->save($d);
 					
 				}
-				$tmp = $data['status'];
-				echo "<h1> $tmp </h1>";
+				//$tmp = $data['status'];
 				$rs_user = $model_user->where("user='$user'")->save($data);
 				if($rs_user)$msg='更新成功！';
 					//echo $rs_user;
