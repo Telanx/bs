@@ -27,6 +27,9 @@ class UserController extends Controller {
 		$user=public_user_id();
 		$model_user = M('user_teacher');
 		$rs_user = $model_user->where("user='$user'")->select();
+		$rs_user[0]['status'] = ord($rs_user[0]['status']);
+        $tmp = $rs_user[0]['status'];
+        echo "<h2> $tmp</h2>";
 		$this->assign('user',$rs_user[0]);
 		$ttype = public_user_ttype();
 		$this->assign("ttype",$ttype);
