@@ -38,33 +38,7 @@
 		}
 		</style>
 		<script src="__LIB__/pintuer/jquery.js"></script>
-		<script type='text/javascript'>
-		$(function(){
-			var dep_list ={$class.v};
-			var dep ="{$user['class']==null?'计科一班':$user['class']}";
-			(function(l,d,dom){$.each(l,function(i,e){dom.append('<option value='+e+' '+(e==d?'selected':'')+'>'+e+'</option>');})})(dep_list,dep,$('#dep-list'));
-			
-			var s = {$user.status};
-			$('input[name=status]:eq('+(1-s)+')').attr('checked',true);
-		
-			$('.btn-confirm').click(function(e){
-				//检验参数是否正确
-				var pwd =$('input[name=pwd]').val();
-				var pwd2=$('input[name=pwd2]').val();
-				if(pwd!=pwd2){
-					var msg_node =$('.msg');
-					msg_node.html('2次密码输入不一致，请重试！');
-					for(i=0;i<3;i++){
-					msg_node.animate({'marginLeft':'-20px'},30).animate({'marginLeft':'0px'},30).animate({'marginLeft':'20px'},30).animate({'maeginLeft':'0px'},30);
-					}
-			
-					return false;
-					}
-				$('form').submit();
-			})
-		})
-		
-	</script>
+
 	</head>
 	
 	<body>
@@ -97,6 +71,44 @@
 		
 		
 		<div class='msg'>{$user.msg}</div>
+		<script>
+			var dep_list ={$class.v};
+			var obj = document.getElementById("dep-list");
+
+			for (var i=0;i<dep_list.length;i++)
+			{
+				var option = document.createElement('option');
+				option.innerHTML = dep_list[i];
+				obj.appendChild(option);
+			}
+		</script>
+		<script type='text/javascript'>
+			$(function(){
+				var dep_list ={$class.v};
+				var dep ="{$user['class']==null?'计科一班':$user['class']}";
+				(function(l,d,dom){$.each(l,function(i,e){dom.append('<option value='+e+' '+(e==d?'selected':'')+'>'+e+'</option>');})})(dep_list,dep,$('#dep-list'));
+
+				//var s = {$user.status};同样暂时是空值
+				$('input[name=status]:eq('+(1-s)+')').attr('checked',true);
+
+				$('.btn-confirm').click(function(e){
+					//检验参数是否正确
+					var pwd =$('input[name=pwd]').val();
+					var pwd2=$('input[name=pwd2]').val();
+					if(pwd!=pwd2){
+						var msg_node =$('.msg');
+						msg_node.html('2次密码输入不一致，请重试！');
+						for(i=0;i<3;i++){
+							msg_node.animate({'marginLeft':'-20px'},30).animate({'marginLeft':'0px'},30).animate({'marginLeft':'20px'},30).animate({'maeginLeft':'0px'},30);
+						}
+
+						return false;
+					}
+					$('form').submit();
+				})
+			})
+
+		</script>
 	</div>
 	
 	
