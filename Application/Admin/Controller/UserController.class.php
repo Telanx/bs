@@ -243,14 +243,14 @@ class UserController extends Controller {
 				$pwd2 = I('post.pwd2');
 				$data = I('post.');
 				$status = I('post.status');
-				
+				echo "<h1> $status </h1>";
 				if(trim($pwd)!=trim($pwd2))$msg = '2次密码输入不一致，请重试！';
 				else if(trim($pwd)=='')unset($data['pwd']);//为空则不需要更改密码
 				else{
 						$d=array(
 						'user'=>$user,
 						'pwd'=>md5($pwd),
-								'status'=> $status,//加入状态
+								//'status'=> $status,//加入状态
 					);
 					$model_pwd = M('user_teacher_pwd');
 					$model_pwd->where("user='$user'")->save($d);
