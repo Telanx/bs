@@ -89,7 +89,7 @@
 		var url ="{:U('Admin/Bs/kt_handler')}";
 		$.post(url,{t:t,k:k,d:d,p:p},function(res){
 			$('.search-result-table tbody>:not(.th)').remove();//清空数据
-			//var rl = res.r.length;
+			var rl = res.r.length;
 			var p_c = res.page.c_p,
 			p_t = res.page.t_p,
 			r = res.r;
