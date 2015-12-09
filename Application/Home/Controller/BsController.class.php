@@ -9,7 +9,7 @@ class BsController extends Controller{
         //$bid = $_GET['_URL_'][2];
         echo "test".$bid;
         preg_match_all ("/\d/", $bid, $m);
-        print_r($m);
+        //print_r($m);
         $add_sentence = "";
             for($i=1;$i<count($m[0]);$i++)
             {
