@@ -4,7 +4,10 @@ namespace Home\Controller;
 use Think\Controller;
 class BsController extends Controller{
 	//查看报审表以及任务书
-	public function viewkt(){//增加查询多个表的情况
+    /**
+     *
+     */
+    public function viewkt(){//增加查询多个表的情况
 		$bid = I('get.bid','','string');
         //$bid = $_GET['_URL_'][2];
         echo ("<h1>test".$bid."test</h1>");
@@ -18,6 +21,7 @@ class BsController extends Controller{
                 $add_sentence = $add_sentence."|| id =".$m[0][$i];
             }
 		$model_kt = new \Think\Model();
+        dump($model_kt);
         $rs_kt = array();
 		//$rs_kt = $model_kt->query("select bs_kt.*,user_teacher.name as tname,user_teacher.officephone,user_teacher.email from bs_kt left join user_teacher on bs_kt.teacher=user_teacher.user where id=$bid".$add_sentence);
         for($i=0;$i<count($m[0]);$i++)
