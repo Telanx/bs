@@ -26,7 +26,7 @@ class BsController extends Controller{
             dump($push_data);
             array_push($rs_kt,$push_data);
             dump($push_data);
-            echo "once!";
+            echo "!".$m[$i]."!";
         }
         //$rs_kt['total']=count($rs_kt[0]);
         $this->assign('kt',$rs_kt[0]);
