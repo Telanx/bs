@@ -22,12 +22,12 @@ class BsController extends Controller{
 		//$rs_kt = $model_kt->query("select bs_kt.*,user_teacher.name as tname,user_teacher.officephone,user_teacher.email from bs_kt left join user_teacher on bs_kt.teacher=user_teacher.user where id=$bid".$add_sentence);
         for($i=0;$i<count($m[0]);$i++)
         {
-            $push_data = $model_kt->query("select bs_kt.*,user_teacher.name as tname,user_teacher.officephone,user_teacher.email from bs_kt left join user_teacher on bs_kt.teacher=user_teacher.user where id=$m[$i]");
+            $push_data = $model_kt->query("select bs_kt.*,user_teacher.name as tname,user_teacher.officephone,user_teacher.email from bs_kt left join user_teacher on bs_kt.teacher=user_teacher.user where id=$m[0][$i]");
             dump($push_data);
             array_push($rs_kt,$push_data);
-            dump($push_data);
-            print_r($m);
-            dump($m[$i]);
+            //dump($push_data);
+            //print_r($m);
+            //dump($m[$i]);
             //echo "!".$m[$i]."!";
         }
         //$rs_kt['total']=count($rs_kt[0]);
