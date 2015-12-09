@@ -9,14 +9,20 @@ class BsController extends Controller{
         //$bid = $_GET['_URL_'][2];
         echo "test".$bid;
         preg_match_all ("/\d/", $bid, $m);
-        //print_r($m);
+        print_r($m);
         $add_sentence = "";
             for($i=1;$i<count($m[0]);$i++)
             {
                 $add_sentence = $add_sentence."|| id =".$m[0][$i];
             }
 		$model_kt = new \Think\Model();
-		$rs_kt = $model_kt->query("select bs_kt.*,user_teacher.name as tname,user_teacher.officephone,user_teacher.email from bs_kt left join user_teacher on bs_kt.teacher=user_teacher.user where id=$bid".$add_sentence);
+        $rs_kt = array();
+		//$rs_kt = $model_kt->query("select bs_kt.*,user_teacher.name as tname,user_teacher.officephone,user_teacher.email from bs_kt left join user_teacher on bs_kt.teacher=user_teacher.user where id=$bid".$add_sentence);
+        for($i=0;$i<count($m[0]);$i++)
+        {
+            $push_data = $model_kt->query("select bs_kt.*,user_teacher.name as tname,user_teacher.officephone,user_teacher.email from bs_kt left join user_teacher on bs_kt.teacher=user_teacher.user where id=$m[$i]");
+            array_push($rs_kt,$push_data);
+        }
         //$rs_kt['total']=count($rs_kt[0]);
         $this->assign('kt',$rs_kt[0]);
         print_r($rs_kt[0]);
