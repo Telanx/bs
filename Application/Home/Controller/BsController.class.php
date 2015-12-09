@@ -25,7 +25,11 @@ class BsController extends Controller{
         }
         //$rs_kt['total']=count($rs_kt[0]);
         $this->assign('kt',$rs_kt[0]);
+        print_r($rs_kt);
+        echo"|||||\n";
         print_r($rs_kt[0]);
+        echo"|||||\n";
+        print_r($rs_kt[0][0]);
 		$this->display();
 	}
 	
