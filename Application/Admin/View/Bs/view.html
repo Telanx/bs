@@ -315,10 +315,10 @@
 						fn:function(){				//回调函数，即点击该菜单后执行事件，注意如果有设置disable属性为true则不执行
 							alert("您选择的课题名是:"+obj.ktName);
 						}
-					},{
+					},/*{
 						id:'viewStudent',
 						text:'批量打印'+obj.dep+'的报审表',	
-						disable:(obj.sId=='null'?true:false),								//禁止点击，即点击无效果
+						//disable:(obj.sId=='null'?true:false),								//禁止点击，即点击无效果
 						fn:function(){
 							//某一项没有数据处理
 							if(obj.sId!=undefined){
@@ -327,7 +327,7 @@
 								alert("该课题没有学生选择，无法查看！");
 							}
 						}
-					}
+					}*/
 					
 				]
 			};
