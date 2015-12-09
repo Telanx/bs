@@ -19,7 +19,7 @@ class BsController extends Controller{
 		$rs_kt = $model_kt->query("select bs_kt.*,user_teacher.name as tname,user_teacher.officephone,user_teacher.email from bs_kt left join user_teacher on bs_kt.teacher=user_teacher.user where id=$bid".$add_sentence);
         //$rs_kt['total']=count($rs_kt[0]);
         $this->assign('kt',$rs_kt[0]);
-        print_r($rs_kt[0]);
+        print_r($rs_kt[0][0]);
 		$this->display();
 	}
 	
