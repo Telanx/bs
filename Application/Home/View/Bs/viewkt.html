@@ -89,14 +89,14 @@
                         </td>
                         <td colspan="4" style="padding-top: 5px; padding-bottom: 5px">
                             <font face="宋体" size="3">
-                                $kt[{$i}].name</font>
+                                {$kt[$i].name}</font>
                         </td>
                         <td style="padding-left: 0; padding-right: 0; padding-top: 5px; padding-bottom: 5px">
                             <font face="宋体" size="3">需要学生数</font>
                         </td>
                         <td style="padding-top: 5px; padding-bottom: 5px">
                             <font face="宋体" size="3">
-                                $kt[{$i}].snum</font>
+                                {$kt[$i].snum}</font>
                         </td>
                     </tr>
                     <tr id='type'>
@@ -104,7 +104,7 @@
                         padding-bottom: 5px" class="style8">
                             <font face="宋体" size="3">题目类型</font>
                         </td>
-                        <td colspan=6>$kt[{$i}].type</td>
+                        <td colspan=6>{$kt[$i].type}</td>
                     </tr>
 
                     <tr id='way'>
@@ -112,7 +112,7 @@
                         padding-bottom: 5px" class="style8">
                             <font face="宋体" size="3">进行方式</font>
                         </td>
-                        <td colspan=6>$kt[{$i}].way</td>
+                        <td colspan=6>{$kt[$i].way}</td>
                     </tr>
 
                     <tr>
@@ -122,7 +122,7 @@
                         </td>
                         <td colspan="6"  align=left style="padding-top: 5px; padding-bottom: 5px">
                             <font face="宋体" size="3">
-                                $kt[{$i}].origin
+                                {$kt[$i].origin}
                             </font>
                         </td>
                     </tr>
@@ -133,7 +133,7 @@
                         </td>
                         <td colspan="6"  align=left style="padding-top: 10px; padding-bottom: 10px">
                             <font face="宋体" size="3">
-                                $kt[{$i}].require</font>
+                                {$kt[$i].require}</font>
                         </td>
                     </tr>
                     <tr>
@@ -143,7 +143,7 @@
                         </td>
                         <td colspan="6" align=left style="padding-top: 20px; padding-bottom: 20px" class="style6">
                             <font face="宋体" size="3">
-                                $kt[{$i}].content</font>
+                                {$kt[$i].content}</font>
                         </td>
                     </tr>
                     <tr>
@@ -153,7 +153,7 @@
                         </td>
                         <td colspan="6" align=left style="padding-top: 10px; padding-bottom: 10px" class="style5">
                             <font face="宋体" size="3">
-                                $kt[{$i}].goal</font>
+                                {$kt[$i].goal}</font>
                         </td>
                     </tr>
                     <tr>
@@ -174,7 +174,7 @@
                             <font face="宋体" size="3">经&nbsp;费</font>
                         </td>
                         <td colspan="6" align=left style="padding-top: 0; padding-bottom: 0" class="style4">
-                            <font face="宋体" size="3">$kt[{$i}].found万元</font>
+                            <font face="宋体" size="3">{$kt[$i].found}万元</font>
                         </td>
                     </tr>
                     <tr height="75pt" >
@@ -185,7 +185,7 @@
                                 <font face="宋体" size="3">条&nbsp;件</font></p>
                         </td>
                         <td colspan="6" align=left style="padding-top: 0; padding-bottom: 0" >
-                            <font face="宋体" size="3">$kt[{$i}].env</font>
+                            <font face="宋体" size="3">{$kt[$i].env}</font>
                         </td>
                     </tr>
                     <tr>
@@ -198,7 +198,7 @@
                                 <font face="宋体" size="3">资&nbsp;料</font></p>
                         </td>
                         <td colspan="6" align=left style="padding-top: 0; padding-bottom: 0" class="style3">
-                            <font face="宋体" size="3">$kt[{$i}].reference</font>
+                            <font face="宋体" size="3">{$kt[$i].reference}</font>
                         </td>
                     </tr>
                     <tr>
@@ -208,7 +208,7 @@
                         </td>
                         <td align="center" style="padding-top: 0; padding-bottom: 0" class="style9">
                             <font face="宋体" size="3">
-                                $kt[{$i}].tname</font>
+                                {$kt[$i].tname}</font>
                         </td>
                         <td style="padding-top: 0; padding-bottom: 0" class="style9">
                             <font face="宋体" size="3">职称</font>
@@ -222,7 +222,7 @@
                         </td>
                         <td style="padding-top: 0; padding-bottom: 0" class="style9">
                             <font face="宋体" size="3">
-                                $kt[{$i}].bsnum</font>
+                                {$kt[$i].bsnum}</font>
                         </td>
                     </tr>
                     <tr>
@@ -235,14 +235,14 @@
                         </td>
                         <td style="padding-top: 0; padding-bottom: 0" class="style1">
                             <font size="3" face="宋体">
-                                $kt[{$i}].officephone</font>
+                                {$kt[$i].officephone}</font>
                         </td>
                         <td style="padding-top: 0; padding-bottom: 0" class="style1">
                             <font size="3">Email</font>
                         </td>
                         <td colspan="3" style="padding-top: 0; padding-bottom: 0" class="style1">
                             <font size="3">
-                                $kt[{$i}].email</font></font></font>
+                                {$kt[$i].email}</font></font></font>
                         </td>
                     </tr>
                 </table>
