@@ -7,6 +7,7 @@ class BsController extends Controller{
 	public function viewkt(){//增加查询多个表的情况
 		//$bid = I('get.bid');
         $bid = $GET['_URL_'][2];
+        echo $bid;
         preg_match_all ("/\d/", $bid, $m);
         print_r($m);
         $add_sentence = "";
