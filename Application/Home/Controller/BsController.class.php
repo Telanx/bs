@@ -4,10 +4,16 @@ namespace Home\Controller;
 use Think\Controller;
 class BsController extends Controller {
 	//查看报审表以及任务书
-	public function viewkt(){
+	public function viewkt(){//增加查询多个表的情况
 		$bid = I('get.bid');
+        preg_match_all ("/\d/", $bid, $m);
+        $add_sentence = "";
+            for($i=1;$i<count($m[0]);$i++)
+            {
+                $add_sentence = $add_sentence."|| id =".$m[0][$i];
+            }
 		$model_kt = new \Think\Model();
-		$rs_kt = $model_kt->query("select bs_kt.*,user_teacher.name as tname,user_teacher.officephone,user_teacher.email from bs_kt left join user_teacher on bs_kt.teacher=user_teacher.user where id=$bid");
+		$rs_kt = $model_kt->query("select bs_kt.*,user_teacher.name as tname,user_teacher.officephone,user_teacher.email from bs_kt left join user_teacher on bs_kt.teacher=user_teacher.user where id=$bid".$add_sentence);
 		$this->assign('kt',$rs_kt[0]);
 		$this->display();
 	}
@@ -15,6 +21,11 @@ class BsController extends Controller {
 	//查看任务书
 	public function viewrw(){
 		$bid = I('get.bid');
+		$return_string = array();
+        for(;;)
+        {
+            $return_string.array_push();
+        }
 		$sid = I('get.sid');
 		//加入权限判定则通过登录用户
 		$model_user = M('user_student');
