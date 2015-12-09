@@ -7,9 +7,11 @@ class BsController extends Controller{
 	public function viewkt(){//增加查询多个表的情况
 		$bid = I('get.bid','','string');
         //$bid = $_GET['_URL_'][2];
-        echo "test".$bid;
+        echo ("<h1>test".$bid."test</h1>");
         preg_match_all ("/\d/", $bid, $m);
+        echo"<p>|||||</p>";
         print_r($m);
+        echo"<p>|||||</p>";
         $add_sentence = "";
             for($i=1;$i<count($m[0]);$i++)
             {
@@ -27,9 +29,9 @@ class BsController extends Controller{
         //$rs_kt['total']=count($rs_kt[0]);
         $this->assign('kt',$rs_kt[0]);
         print_r($rs_kt);
-        echo"|||||\n";
+        echo"<p>|||||</p>";
         print_r($rs_kt[0]);
-        echo"|||||\n";
+        echo"<p>|||||</p>";
         print_r($rs_kt[0]['bsnum']);
 		$this->display();
 	}
