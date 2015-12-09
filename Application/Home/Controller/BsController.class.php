@@ -14,7 +14,7 @@ class BsController extends Controller {
             }
 		$model_kt = new \Think\Model();
 		$rs_kt = $model_kt->query("select bs_kt.*,user_teacher.name as tname,user_teacher.officephone,user_teacher.email from bs_kt left join user_teacher on bs_kt.teacher=user_teacher.user where id=$bid".$add_sentence);
-        //$rs_kt[0]['total']=count($rs_kt[0]);
+        $rs_kt[0]['total']=count($rs_kt[0]);
         $this->assign('kt',$rs_kt[0]);
         print_r($rs_kt[0]);
 		$this->display();
