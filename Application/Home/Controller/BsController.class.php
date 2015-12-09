@@ -5,8 +5,8 @@ use Think\Controller;
 class BsController extends Controller{
 	//查看报审表以及任务书
 	public function viewkt(){//增加查询多个表的情况
-		//$bid = I('get.bid');
-        $bid = $_GET['_URL_'][2];
+		$bid = I('get.bid','','string');
+        //$bid = $_GET['_URL_'][2];
         echo "test".$bid;
         preg_match_all ("/\d/", $bid, $m);
         print_r($m);
