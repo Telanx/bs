@@ -10,7 +10,7 @@ class BsController extends Controller{
         echo ("<h1>test".$bid."test</h1>");
         preg_match_all ("/\d/", $bid, $m);
         echo"<p>|||||</p>";
-        print_r($m);
+        print_r($m);//success
         echo"<p>|||||</p>";
         $add_sentence = "";
             for($i=1;$i<count($m[0]);$i++)
@@ -23,16 +23,17 @@ class BsController extends Controller{
         for($i=0;$i<count($m[0]);$i++)
         {
             $push_data = $model_kt->query("select bs_kt.*,user_teacher.name as tname,user_teacher.officephone,user_teacher.email from bs_kt left join user_teacher on bs_kt.teacher=user_teacher.user where id=$m[$i]");
+            dump($push_data);
             array_push($rs_kt,$push_data);
+            dump($push_data);
             echo "once!";
         }
         //$rs_kt['total']=count($rs_kt[0]);
         $this->assign('kt',$rs_kt[0]);
-        print_r($rs_kt);
+        print_r($rs_kt);//success
         echo"<p>|||||</p>";
-        print_r($rs_kt[0]);
+        print_r($rs_kt[0][0]);
         echo"<p>|||||</p>";
-        print_r($rs_kt[0]['bsnum']);
 		$this->display();
 	}
 	
