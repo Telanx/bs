@@ -21,11 +21,6 @@ class BsController extends Controller {
 	//查看任务书
 	public function viewrw(){
 		$bid = I('get.bid');
-		$return_string = array();
-        for(;;)
-        {
-            $return_string.array_push();
-        }
 		$sid = I('get.sid');
 		//加入权限判定则通过登录用户
 		$model_user = M('user_student');
