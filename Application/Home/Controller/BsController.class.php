@@ -17,7 +17,7 @@ class BsController extends Controller {
 			$push_data = $model_kt->query("select bs_kt.*,user_teacher.name as
 		tname,user_teacher.officephone,user_teacher.email
 		from bs_kt left join user_teacher on bs_kt.teacher=user_teacher.user where id=".$m[0][$i]);
-			dump($push_data[0]);
+			//dump($push_data[0]);
 			array_push($rs_kt,$push_data[0]);
 			//dump($push_data);
 			//print_r($m);
@@ -29,7 +29,7 @@ class BsController extends Controller {
 		tname,user_teacher.officephone,user_teacher.email
 		from bs_kt left join user_teacher on bs_kt.teacher=user_teacher.user where id=".$m[0][0]);*/
 		dump($rs_kt);
-		$this->assign('kt',$rs_kt[0]);
+		$this->assign('kt',$rs_kt);
 		$this->display();
 	}
 	
