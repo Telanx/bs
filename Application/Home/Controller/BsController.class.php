@@ -5,7 +5,8 @@ use Think\Controller;
 class BsController extends Controller {
 	//查看报审表以及任务书
 	public function viewkt(){
-		$bid = I('get.bid');
+		//$bid = I('get.bid');
+		$bid = I('get.bid','','string');
 		$model_kt = new \Think\Model();
 		$rs_kt = $model_kt->query("select bs_kt.*,user_teacher.name as tname,user_teacher.officephone,user_teacher.email from bs_kt left join user_teacher on bs_kt.teacher=user_teacher.user where id=$bid");
 		$this->assign('kt',$rs_kt[0]);
