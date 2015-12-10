@@ -442,12 +442,14 @@
                                 alert("第"+(i+1)+"个的ID="+oTab[i]);
                             }*/
                             var oTab=document.getElementsByClassName("viewkt");    //获取表格
-                            alert("length is"+oTab.length);
+                            //alert("length is"+oTab.length);
+                            var str_arr = "";
                             for (var i=0;i<oTab.length;i++)
                             {
                                 //oTab[i]=oTab[i].getAttribute('data_id');
-                                alert(oTab[i].getAttribute('data_id'));
+                                str_arr=str_arr+oTab[i].getAttribute('data_id')+"_";
                             }
+                            window.location.assign("/index.php/Home/Bs/viewkt.html?bid="+str_arr);
                         };
                     };
                 </script>
