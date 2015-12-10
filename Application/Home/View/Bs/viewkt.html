@@ -3,13 +3,13 @@
 <html>
 <head>
     <meta http-equiv="Content-Language" content="zh-cn">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Êä•ÂÆ°Ë°®</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <title>±®…Û±Ì</title>
 
     <script language="javascript" type="text/javascript">
         function printdiv(printpage)
         {
-            var headstr = "<html><head><title>Êä•ÂÆ°Ë°®</title></head><body>";
+            var headstr = "<html><head><title>±®…Û±Ì</title></head><body>";
             var footstr = "</body>";
             var newstr = document.all.item(printpage).innerHTML;
             var oldstr = document.body.innerHTML;
@@ -59,319 +59,319 @@
     </style>
 
 </head>
-
+<volist name="kt" id="vo">
+    <p>output:{$vo['name'])</p>
+    </volist>
 <body style="line-height: 100%;background:url(../../images/right_pic.jpg)">
 
-<a href="javascript:printdiv('div_document');">ÊâìÂç∞</a> <a href="javascript:window.close()">ÂÖ≥Èó≠</a>
-<a href="renwu.asp?id=8469" target="_blank">‰ªªÂä°‰π¶</a> <a href="Âçé‰∏≠ÁßëÊäÄÂ§ßÂ≠¶ÊØï‰∏öËÆæËÆ°(ËÆ∫Êñá)‰ªªÂä°‰π¶.doc"
-                                                       target="_blank">Á©∫‰ªªÂä°‰π¶</a>
+<a href="javascript:printdiv('div_document');">¥Ú”°</a> <a href="javascript:window.close()">πÿ±’</a>
+<a href="renwu.asp?id=8469" target="_blank">»ŒŒÒ È</a> <a href="ª™÷–ø∆ºº¥Û—ß±œ“µ…Ëº∆(¬€Œƒ)»ŒŒÒ È.doc"
+                                                       target="_blank">ø’»ŒŒÒ È</a>
 
-<for start="0" end="count($kt)">
+<div id="div_document" style="text-align:center;width:280mm;height:auto">
 
-    <div id="div_document" style="text-align:center;width:280mm;height:auto">
-
-        <!--Á¨¨‰∏ÄÈ°µ-->
-        <div style="height:380mm;background:#FFFFFF;text-align:center;padding-top:10mm;">
-            <div align="center">
-                <p style="line-height:2em">
-                    <b><font size="5" face="ÂÆã‰Ωì" >Âçé‰∏≠ÁßëÊäÄÂ§ßÂ≠¶</font></b></p>
-                <p>
-                    <b><font size="5" face="ÂÆã‰Ωì">Êú¨ÁßëÁîüÊØï‰∏öËÆæËÆ°(ËÆ∫Êñá)ËØæÈ¢òÊä•ÂÆ°Ë°®</font></b></p>
-                <font face="ÂÆã‰Ωì">
-                </font>
-                <table border="1" width="90%" bordercolor="#000000" cellpadding="14" id="table1"
-                       style="border-collapse: collapse; text-align: center; letter-spacing: -1pt; font-family: ÂçéÊñá‰ªøÂÆã"
-                       cellspacing="0" height="79%">
-                    <tr>
-                        <td colspan="2" width="110" height="35" style="padding-left: 1px; padding-right: 1px;
+    <!--µ⁄“ª“≥-->
+    <div style="height:380mm;background:#FFFFFF;text-align:center;padding-top:10mm;">
+        <div align="center">
+            <p style="line-height:2em">
+                <b><font size="5" face="ÀŒÃÂ" >ª™÷–ø∆ºº¥Û—ß</font></b></p>
+            <p>
+                <b><font size="5" face="ÀŒÃÂ">±æø∆…˙±œ“µ…Ëº∆(¬€Œƒ)øŒÃ‚±®…Û±Ì</font></b></p>
+            <font face="ÀŒÃÂ">
+            </font>
+            <table border="1" width="90%" bordercolor="#000000" cellpadding="14" id="table1"
+                   style="border-collapse: collapse; text-align: center; letter-spacing: -1pt; font-family: ª™Œƒ∑¬ÀŒ"
+                   cellspacing="0" height="79%">
+                <tr>
+                    <td colspan="2" width="110" height="35" style="padding-left: 1px; padding-right: 1px;
                         padding-top: 5px; padding-bottom: 5px">
-                            <font face="ÂÆã‰Ωì" size="3">ËØæÈ¢òÂêçÁß∞</font>
-                        </td>
-                        <td colspan="4" style="padding-top: 5px; padding-bottom: 5px">
-                            <font face="ÂÆã‰Ωì" size="3">
-                                {$kt[$i].name}</font>
-                        </td>
-                        <td style="padding-left: 0; padding-right: 0; padding-top: 5px; padding-bottom: 5px">
-                            <font face="ÂÆã‰Ωì" size="3">ÈúÄË¶ÅÂ≠¶ÁîüÊï∞</font>
-                        </td>
-                        <td style="padding-top: 5px; padding-bottom: 5px">
-                            <font face="ÂÆã‰Ωì" size="3">
-                                {$kt[$i].snum}</font>
-                        </td>
-                    </tr>
-                    <tr id='type'>
-                        <td colspan="2" width="110" height="35" style="padding-left: 1px; padding-right: 1px; padding-top: 5px;
+                        <font face="ÀŒÃÂ" size="3">øŒÃ‚√˚≥∆</font>
+                    </td>
+                    <td colspan="4" style="padding-top: 5px; padding-bottom: 5px">
+                        <font face="ÀŒÃÂ" size="3">
+                            {$kt.name}</font>
+                    </td>
+                    <td style="padding-left: 0; padding-right: 0; padding-top: 5px; padding-bottom: 5px">
+                        <font face="ÀŒÃÂ" size="3">–Ë“™—ß…˙ ˝</font>
+                    </td>
+                    <td style="padding-top: 5px; padding-bottom: 5px">
+                        <font face="ÀŒÃÂ" size="3">
+                            {$kt.snum}</font>
+                    </td>
+                </tr>
+                <tr id='type'>
+                    <td colspan="2" width="110" height="35" style="padding-left: 1px; padding-right: 1px; padding-top: 5px;
                         padding-bottom: 5px" class="style8">
-                            <font face="ÂÆã‰Ωì" size="3">È¢òÁõÆÁ±ªÂûã</font>
-                        </td>
-                        <td colspan=6>{$kt[$i].type}</td>
-                    </tr>
+                        <font face="ÀŒÃÂ" size="3">Ã‚ƒø¿‡–Õ</font>
+                    </td>
+                    <td colspan=6>{$kt.type}</td>
+                </tr>
 
-                    <tr id='way'>
-                        <td colspan="2" height="35" style="padding-left: 1px; padding-right: 1px; padding-top: 5px;
+                <tr id='way'>
+                    <td colspan="2" height="35" style="padding-left: 1px; padding-right: 1px; padding-top: 5px;
                         padding-bottom: 5px" class="style8">
-                            <font face="ÂÆã‰Ωì" size="3">ËøõË°åÊñπÂºè</font>
-                        </td>
-                        <td colspan=6>{$kt[$i].way}</td>
-                    </tr>
+                        <font face="ÀŒÃÂ" size="3">Ω¯––∑Ω Ω</font>
+                    </td>
+                    <td colspan=6>{$kt.way}</td>
+                </tr>
 
-                    <tr>
-                        <td colspan="2" width="110" height="35" style="padding-left: 1px; padding-right: 1px; padding-top: 5px;
+                <tr>
+                    <td colspan="2" width="110" height="35" style="padding-left: 1px; padding-right: 1px; padding-top: 5px;
                         padding-bottom: 5px">
-                            <font face="ÂÆã‰Ωì" size="3">ËØæÈ¢òÊù•Ê∫ê</font>
-                        </td>
-                        <td colspan="6"  align=left style="padding-top: 5px; padding-bottom: 5px">
-                            <font face="ÂÆã‰Ωì" size="3">
-                                {$kt[$i].origin}
-                            </font>
-                        </td>
-                    </tr>
-                    <tr height="35pt">
-                        <td colspan="2" width="110" style="padding-left: 1px; padding-right: 1px; padding-top: 10px;
+                        <font face="ÀŒÃÂ" size="3">øŒÃ‚¿¥‘¥</font>
+                    </td>
+                    <td colspan="6"  align=left style="padding-top: 5px; padding-bottom: 5px">
+                        <font face="ÀŒÃÂ" size="3">
+                            {$kt.origin}
+                        </font>
+                    </td>
+                </tr>
+                <tr height="35pt">
+                    <td colspan="2" width="110" style="padding-left: 1px; padding-right: 1px; padding-top: 10px;
                         padding-bottom: 10px">
-                            <font face="ÂÆã‰Ωì" size="3">ÁõÆÁöÑË¶ÅÊ±Ç</font>
-                        </td>
-                        <td colspan="6"  align=left style="padding-top: 10px; padding-bottom: 10px">
-                            <font face="ÂÆã‰Ωì" size="3">
-                                {$kt[$i].require}</font>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" width="110" style="padding-left: 1px; padding-right: 1px; padding-top: 20px;
+                        <font face="ÀŒÃÂ" size="3">ƒøµƒ“™«Û</font>
+                    </td>
+                    <td colspan="6"  align=left style="padding-top: 10px; padding-bottom: 10px">
+                        <font face="ÀŒÃÂ" size="3">
+                            {$kt.require}</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" width="110" style="padding-left: 1px; padding-right: 1px; padding-top: 20px;
                         padding-bottom: 20px" class="style6">
-                            <font face="ÂÆã‰Ωì" size="3">‰∏ªË¶ÅÂÜÖÂÆπ</font>
-                        </td>
-                        <td colspan="6" align=left style="padding-top: 20px; padding-bottom: 20px" class="style6">
-                            <font face="ÂÆã‰Ωì" size="3">
-                                {$kt[$i].content}</font>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" width="110" style="padding-left: 1px; padding-right: 1px; padding-top: 10px;
+                        <font face="ÀŒÃÂ" size="3">÷˜“™ƒ⁄»›</font>
+                    </td>
+                    <td colspan="6" align=left style="padding-top: 20px; padding-bottom: 20px" class="style6">
+                        <font face="ÀŒÃÂ" size="3">
+                            {$kt.content}</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" width="110" style="padding-left: 1px; padding-right: 1px; padding-top: 10px;
                         padding-bottom: 10px" class="style5">
-                            <font face="ÂÆã‰Ωì" size="3">È¢ÑÊúüÁõÆÊ†á</font>
-                        </td>
-                        <td colspan="6" align=left style="padding-top: 10px; padding-bottom: 10px" class="style5">
-                            <font face="ÂÆã‰Ωì" size="3">
-                                {$kt[$i].goal}</font>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td rowspan="3" width="35" style="padding-left: 1px; padding-right: 1px; padding-top: 0;
+                        <font face="ÀŒÃÂ" size="3">‘§∆⁄ƒø±Í</font>
+                    </td>
+                    <td colspan="6" align=left style="padding-top: 10px; padding-bottom: 10px" class="style5">
+                        <font face="ÀŒÃÂ" size="3">
+                            {$kt.goal}</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="3" width="35" style="padding-left: 1px; padding-right: 1px; padding-top: 0;
                         padding-bottom: 0">
-                            <font face="ÂÆã‰Ωì" size="3">ÂÖ∑</font><p>
-                            <font face="ÂÆã‰Ωì" size="3">Â§á</font></p>
-                            <p>
-                                <font face="ÂÆã‰Ωì" size="3">ÁöÑ</font></p>
-                            <p>
-                                <font face="ÂÆã‰Ωì" size="3">Êù°</font></p>
-                            <p>
-                                <font face="ÂÆã‰Ωì" size="3">‰ª∂ </font>
-                            </p>
-                        </td>
-                        <td width="50" height="25" style="padding-left: 1px;padding-right: 1px; padding-top: 0; padding-bottom: 0"
-                            class="style4">
-                            <font face="ÂÆã‰Ωì" size="3">Áªè&nbsp;Ë¥π</font>
-                        </td>
-                        <td colspan="6" align=left style="padding-top: 0; padding-bottom: 0" class="style4">
-                            <font face="ÂÆã‰Ωì" size="3">{$kt[$i].found}‰∏áÂÖÉ</font>
-                        </td>
-                    </tr>
-                    <tr height="75pt" >
-                        <td width="50" style="padding-left: 1px; padding-right: 1px; padding-top: 0; padding-bottom: 0">
-                            <p>
-                                <font face="ÂÆã‰Ωì" size="3">ÂÆû&nbsp;È™å</font><br/>
-                                <font face="ÂÆã‰Ωì" size="3">Âä†&nbsp;Â∑•</font><br/>
-                                <font face="ÂÆã‰Ωì" size="3">Êù°&nbsp;‰ª∂</font></p>
-                        </td>
-                        <td colspan="6" align=left style="padding-top: 0; padding-bottom: 0" >
-                            <font face="ÂÆã‰Ωì" size="3">{$kt[$i].env}</font>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="50" style="padding-left: 1px; padding-right: 1px; padding-top: 0; padding-bottom: 0">
-                            <p style="height: 7px">
-                                <font face="ÂÆã‰Ωì" size="3">‰∏ª&nbsp;Ë¶Å</font></p>
-                            <p style="height: 7px">
-                                <font face="ÂÆã‰Ωì" size="3">ÂèÇ&nbsp;ËÄÉ</font></p>
-                            <p style="height: 7px">
-                                <font face="ÂÆã‰Ωì" size="3">ËµÑ&nbsp;Êñô</font></p>
-                        </td>
-                        <td colspan="6" align=left style="padding-top: 0; padding-bottom: 0" class="style3">
-                            <font face="ÂÆã‰Ωì" size="3">{$kt[$i].reference}</font>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="padding-left: 1px; padding-right: 1px; padding-top: 0;
+                        <font face="ÀŒÃÂ" size="3">æﬂ</font><p>
+                        <font face="ÀŒÃÂ" size="3">±∏</font></p>
+                        <p>
+                            <font face="ÀŒÃÂ" size="3">µƒ</font></p>
+                        <p>
+                            <font face="ÀŒÃÂ" size="3">Ãı</font></p>
+                        <p>
+                            <font face="ÀŒÃÂ" size="3">º˛ </font>
+                        </p>
+                    </td>
+                    <td width="50" height="25" style="padding-left: 1px;padding-right: 1px; padding-top: 0; padding-bottom: 0"
+                        class="style4">
+                        <font face="ÀŒÃÂ" size="3">æ≠&nbsp;∑—</font>
+                    </td>
+                    <td colspan="6" align=left style="padding-top: 0; padding-bottom: 0" class="style4">
+                        <font face="ÀŒÃÂ" size="3">{$kt.found}ÕÚ‘™</font>
+                    </td>
+                </tr>
+                <tr height="75pt" >
+                    <td width="50" style="padding-left: 1px; padding-right: 1px; padding-top: 0; padding-bottom: 0">
+                        <p>
+                            <font face="ÀŒÃÂ" size="3"> µ&nbsp;—È</font><br/>
+                            <font face="ÀŒÃÂ" size="3">º”&nbsp;π§</font><br/>
+                            <font face="ÀŒÃÂ" size="3">Ãı&nbsp;º˛</font></p>
+                    </td>
+                    <td colspan="6" align=left style="padding-top: 0; padding-bottom: 0" >
+                        <font face="ÀŒÃÂ" size="3">{$kt.env}</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="50" style="padding-left: 1px; padding-right: 1px; padding-top: 0; padding-bottom: 0">
+                        <p style="height: 7px">
+                            <font face="ÀŒÃÂ" size="3">÷˜&nbsp;“™</font></p>
+                        <p style="height: 7px">
+                            <font face="ÀŒÃÂ" size="3">≤Œ&nbsp;øº</font></p>
+                        <p style="height: 7px">
+                            <font face="ÀŒÃÂ" size="3">◊ &nbsp;¡œ</font></p>
+                    </td>
+                    <td colspan="6" align=left style="padding-top: 0; padding-bottom: 0" class="style3">
+                        <font face="ÀŒÃÂ" size="3">{$kt.reference}</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="padding-left: 1px; padding-right: 1px; padding-top: 0;
                         padding-bottom: 0" class="style9">
-                            <font face="ÂÆã‰Ωì" size="3">ÊåáÂØºËÄÅÂ∏àÂßìÂêç</font>
-                        </td>
-                        <td align="center" style="padding-top: 0; padding-bottom: 0" class="style9">
-                            <font face="ÂÆã‰Ωì" size="3">
-                                {$kt[$i].tname}</font>
-                        </td>
-                        <td style="padding-top: 0; padding-bottom: 0" class="style9">
-                            <font face="ÂÆã‰Ωì" size="3">ËÅåÁß∞</font>
-                        </td>
-                        <td align="center" style="padding-top: 0; padding-bottom: 0" class="style9">
-                            <font face="ÂÆã‰Ωì" size="3">
+                        <font face="ÀŒÃÂ" size="3">÷∏µº¿œ ¶–’√˚</font>
+                    </td>
+                    <td align="center" style="padding-top: 0; padding-bottom: 0" class="style9">
+                        <font face="ÀŒÃÂ" size="3">
+                            {$kt.tname}</font>
+                    </td>
+                    <td style="padding-top: 0; padding-bottom: 0" class="style9">
+                        <font face="ÀŒÃÂ" size="3">÷∞≥∆</font>
+                    </td>
+                    <td align="center" style="padding-top: 0; padding-bottom: 0" class="style9">
+                        <font face="ÀŒÃÂ" size="3">
 
-                        </td>
-                        <td colspan="2" style="padding-top: 0; padding-bottom: 0" class="style9">
-                            <font size="3" face="ÂÆã‰Ωì">Â∏¶ÊØï‰∏öËÆæËÆ°ÁöÑÊ¨°Êï∞</font>
-                        </td>
-                        <td style="padding-top: 0; padding-bottom: 0" class="style9">
-                            <font face="ÂÆã‰Ωì" size="3">
-                                {$kt[$i].bsnum}</font>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="padding-top: 0; padding-bottom: 0" class="style1">
-                            <font size="3"><font face="ÂÆã‰Ωì">ËÅîÁ≥ªÊñπÂºè<br>
-                            </font>
-                        </td>
-                        <td style="padding-top: 0; padding-bottom: 0" class="style1">
-                            <font face="ÂÆã‰Ωì" size="3">ÁîµËØù</font>
-                        </td>
-                        <td style="padding-top: 0; padding-bottom: 0" class="style1">
-                            <font size="3" face="ÂÆã‰Ωì">
-                                {$kt[$i].officephone}</font>
-                        </td>
-                        <td style="padding-top: 0; padding-bottom: 0" class="style1">
-                            <font size="3">Email</font>
-                        </td>
-                        <td colspan="3" style="padding-top: 0; padding-bottom: 0" class="style1">
-                            <font size="3">
-                                {$kt[$i].email}</font></font></font>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <p align="center">
-                <b><font face="ÂÆã‰Ωì">Ê≥®:ËØæÈ¢òÊù•Ê∫ê‰∏ÄÊ†èÂ∫îÂ°´ÂÜôÁªìÂêàÂÆûÈôÖËØæÈ¢òÁöÑÂêçÁß∞,Âπ∂ÈôÑÁßëÁ†îËØæÈ¢òÁ´ãÈ°πÈÄöÁü•‰π¶Â§çÂç∞‰ª∂</font></b></p>
+                    </td>
+                    <td colspan="2" style="padding-top: 0; padding-bottom: 0" class="style9">
+                        <font size="3" face="ÀŒÃÂ">¥¯±œ“µ…Ëº∆µƒ¥Œ ˝</font>
+                    </td>
+                    <td style="padding-top: 0; padding-bottom: 0" class="style9">
+                        <font face="ÀŒÃÂ" size="3">
+                            {$kt.bsnum}</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="padding-top: 0; padding-bottom: 0" class="style1">
+                        <font size="3"><font face="ÀŒÃÂ">¡™œµ∑Ω Ω<br>
+                        </font>
+                    </td>
+                    <td style="padding-top: 0; padding-bottom: 0" class="style1">
+                        <font face="ÀŒÃÂ" size="3">µÁª∞</font>
+                    </td>
+                    <td style="padding-top: 0; padding-bottom: 0" class="style1">
+                        <font size="3" face="ÀŒÃÂ">
+                            {$kt.officephone}</font>
+                    </td>
+                    <td style="padding-top: 0; padding-bottom: 0" class="style1">
+                        <font size="3">Email</font>
+                    </td>
+                    <td colspan="3" style="padding-top: 0; padding-bottom: 0" class="style1">
+                        <font size="3">
+                            {$kt.email}</font></font></font>
+                    </td>
+                </tr>
+            </table>
         </div>
+        <p align="center">
+            <b><font face="ÀŒÃÂ">◊¢:øŒÃ‚¿¥‘¥“ª¿∏”¶ÃÓ–¥Ω·∫œ µº øŒÃ‚µƒ√˚≥∆,≤¢∏Ωø∆—–øŒÃ‚¡¢œÓÕ®÷™ È∏¥”°º˛</font></b></p>
+    </div>
 
-        <!--Á¨¨‰∫åÈ°µ-->
-        <div style="height:380mm;background:#FFFFFF;text-align:center;padding-top:10mm">
-            <p align="center">
-                &nbsp;
-            </p>
-            <div align="center">
-                <table border="1" cellpadding="30" cellspacing="0" style="padding: 0; border-collapse: collapse"
-                       width="87%" height="89%" bordercolor="#000000" id="table2">
-                    <tr>
-                        <td rowspan="8" style="padding-left: 15px; padding-right: 15px" align="center">
-                            <font face="ÂÆã‰Ωì">Êïô</font><p>
-                            <font face="ÂÆã‰Ωì">Á†î</font></p>
-                            <p>
-                                <font face="ÂÆã‰Ωì">ÂÆ§</font></p>
-                            <p>
-                                <font face="ÂÆã‰Ωì">ÂÆ°</font></p>
-                            <p>
-                                <font face="ÂÆã‰Ωì">ÂÆö</font></p>
-                            <p>
-                                <font face="ÂÆã‰Ωì">Â∞è</font></p>
-                            <p>
-                                <font face="ÂÆã‰Ωì">ÁªÑ</font></p>
-                            <p>
-                                <font face="ÂÆã‰Ωì">ÊÑè</font></p>
-                            <p>
-                                <font face="ÂÆã‰Ωì">ËßÅ</font>
-                        </td>
-                        <td width="259" height="70pt" style="padding-top: 10px; padding-bottom: 10px">
-                            <font face="ÂÆã‰Ωì">1„ÄÅÊú¨ËØæÈ¢òËÉΩÂê¶Êª°Ë∂≥ÁªºÂêàËÆ≠ÁªÉÂ≠¶ÁîüÁöÑÊïôÂ≠¶Ë¶ÅÊ±Ç</font>
-                        </td>
-                        <td width="46" style="padding-top: 10px; padding-bottom: 10px">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="259" height="70pt" style="padding-top: 10px; padding-bottom: 10px">
-                            <font face="ÂÆã‰Ωì">2„ÄÅËØæÈ¢ò‰∏≠ÊúâÊó†Âü∫Êú¨Â∑•Á®ãËÆ≠ÁªÉÂÜÖÂÆπÂàÜÈáèÂ§öÂ§ßÔºàÈôê‰∫éÁêÜÂ∑•‰∏ì‰∏öÔºâ</font>
-                        </td>
-                        <td width="46" style="padding-top: 10px; padding-bottom: 10px">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="259" height="70pt" style="padding-top: 10px; padding-bottom: 10px">
-                            <font face="ÂÆã‰Ωì">3„ÄÅÊú¨ËØæÈ¢òÁõÆÁöÑË¶ÅÊ±Ç„ÄÅ‰ªªÂä°ÂÜÖÂÆπÊòØÂê¶ÊòéÁ°Æ„ÄÅÂÖ∑‰Ωì</font>
-                        </td>
-                        <td width="46" style="padding-top: 10px; padding-bottom: 10px">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="259" height="70pt" style="padding-top: 20px; padding-bottom: 20px">
-                            <font face="ÂÆã‰Ωì">4„ÄÅËøõË°åÊú¨ËØæÈ¢òÁé∞ÊúâÊù°‰ª∂ÊòØÂê¶ÂÖ∑Â§á</font>
-                        </td>
-                        <td width="46" style="padding-top: 20px; padding-bottom: 20px">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="259" height="70pt" style="padding-top: 10px; padding-bottom: 10px">
-                            <font face="ÂÆã‰Ωì">5„ÄÅÂ∑•‰ΩúÈáèÊòØÂê¶È•±Êª°ËØæÈ¢òÈöæÂ∫¶ÊòØÂê¶ÈÄÇ‰∏≠</font>
-                        </td>
-                        <td width="46" style="padding-top: 10px; padding-bottom: 10px">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="259" height="70pt" style="padding-top: 10px; padding-bottom: 10px">
-                            <font face="ÂÆã‰Ωì">6„ÄÅËøõË°åÊú¨ËØæÈ¢òÂ∞öÁº∫Â∞ëÁöÑÊù°‰ª∂Êú¨Âçï‰ΩçËÉΩÂê¶Ëß£ÂÜ≥</font>
-                        </td>
-                        <td width="46" style="padding-top: 10px; padding-bottom: 20px">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="259" height="70pt" style="padding-top: 20px; padding-bottom: 20px">
-                            <font face="ÂÆã‰Ωì">7„ÄÅÂØπÊú¨ËØæÈ¢òÁöÑËØÑÂÆ°ÁªìËÆ∫</font>
-                        </td>
-                        <td width="46" style="padding-top: 20px; padding-bottom: 20px">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="419" colspan="2" style="padding-top: 25px; padding-bottom: 0; padding-right: 1">
-                            <p align="right">
-                            </p>
-                            <p align="right">
-                                <font face="ÂÆã‰Ωì">ÊïôÁ†îÂÆ§‰∏ª‰ªªÔºàÁ≠æÂ≠óÔºâ</font></p>
-                            <p align="right" style="width: 514px">
-                                <font face="ÂÆã‰Ωì">20&nbsp; &nbsp; Âπ¥&nbsp; &nbsp;Êúà&nbsp; &nbsp;Êó•</font></p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td height="200pt" width="52" style="padding-left: 15px; padding-right: 15px; padding-top: 10px;
+    <!--µ⁄∂˛“≥-->
+    <div style="height:380mm;background:#FFFFFF;text-align:center;padding-top:10mm">
+        <p align="center">
+            &nbsp;
+        </p>
+        <div align="center">
+            <table border="1" cellpadding="30" cellspacing="0" style="padding: 0; border-collapse: collapse"
+                   width="87%" height="89%" bordercolor="#000000" id="table2">
+                <tr>
+                    <td rowspan="8" style="padding-left: 15px; padding-right: 15px" align="center">
+                        <font face="ÀŒÃÂ">ΩÃ</font><p>
+                        <font face="ÀŒÃÂ">—–</font></p>
+                        <p>
+                            <font face="ÀŒÃÂ"> “</font></p>
+                        <p>
+                            <font face="ÀŒÃÂ">…Û</font></p>
+                        <p>
+                            <font face="ÀŒÃÂ">∂®</font></p>
+                        <p>
+                            <font face="ÀŒÃÂ">–°</font></p>
+                        <p>
+                            <font face="ÀŒÃÂ">◊È</font></p>
+                        <p>
+                            <font face="ÀŒÃÂ">“‚</font></p>
+                        <p>
+                            <font face="ÀŒÃÂ">º˚</font>
+                    </td>
+                    <td width="259" height="70pt" style="padding-top: 10px; padding-bottom: 10px">
+                        <font face="ÀŒÃÂ">1°¢±æøŒÃ‚ƒ‹∑Ò¬˙◊„◊€∫œ—µ¡∑—ß…˙µƒΩÃ—ß“™«Û</font>
+                    </td>
+                    <td width="46" style="padding-top: 10px; padding-bottom: 10px">
+                    </td>
+                </tr>
+                <tr>
+                    <td width="259" height="70pt" style="padding-top: 10px; padding-bottom: 10px">
+                        <font face="ÀŒÃÂ">2°¢øŒÃ‚÷–”–Œﬁª˘±æπ§≥Ã—µ¡∑ƒ⁄»›∑÷¡ø∂‡¥Û£®œﬁ”⁄¿Ìπ§◊®“µ£©</font>
+                    </td>
+                    <td width="46" style="padding-top: 10px; padding-bottom: 10px">
+                    </td>
+                </tr>
+                <tr>
+                    <td width="259" height="70pt" style="padding-top: 10px; padding-bottom: 10px">
+                        <font face="ÀŒÃÂ">3°¢±æøŒÃ‚ƒøµƒ“™«Û°¢»ŒŒÒƒ⁄»› «∑Ò√˜»∑°¢æﬂÃÂ</font>
+                    </td>
+                    <td width="46" style="padding-top: 10px; padding-bottom: 10px">
+                    </td>
+                </tr>
+                <tr>
+                    <td width="259" height="70pt" style="padding-top: 20px; padding-bottom: 20px">
+                        <font face="ÀŒÃÂ">4°¢Ω¯––±æøŒÃ‚œ÷”–Ãıº˛ «∑Òæﬂ±∏</font>
+                    </td>
+                    <td width="46" style="padding-top: 20px; padding-bottom: 20px">
+                    </td>
+                </tr>
+                <tr>
+                    <td width="259" height="70pt" style="padding-top: 10px; padding-bottom: 10px">
+                        <font face="ÀŒÃÂ">5°¢π§◊˜¡ø «∑Ò±•¬˙øŒÃ‚ƒ—∂» «∑Ò  ÷–</font>
+                    </td>
+                    <td width="46" style="padding-top: 10px; padding-bottom: 10px">
+                    </td>
+                </tr>
+                <tr>
+                    <td width="259" height="70pt" style="padding-top: 10px; padding-bottom: 10px">
+                        <font face="ÀŒÃÂ">6°¢Ω¯––±æøŒÃ‚…–»±…ŸµƒÃıº˛±æµ•Œªƒ‹∑ÒΩ‚æˆ</font>
+                    </td>
+                    <td width="46" style="padding-top: 10px; padding-bottom: 20px">
+                    </td>
+                </tr>
+                <tr>
+                    <td width="259" height="70pt" style="padding-top: 20px; padding-bottom: 20px">
+                        <font face="ÀŒÃÂ">7°¢∂‘±æøŒÃ‚µƒ∆¿…ÛΩ·¬€</font>
+                    </td>
+                    <td width="46" style="padding-top: 20px; padding-bottom: 20px">
+                    </td>
+                </tr>
+                <tr>
+                    <td width="419" colspan="2" style="padding-top: 25px; padding-bottom: 0; padding-right: 1">
+                        <p align="right">
+                        </p>
+                        <p align="right">
+                            <font face="ÀŒÃÂ">ΩÃ—– “÷˜»Œ£®«©◊÷£©</font></p>
+                        <p align="right" style="width: 514px">
+                            <font face="ÀŒÃÂ">20&nbsp; &nbsp; ƒÍ&nbsp; &nbsp;‘¬&nbsp; &nbsp;»’</font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="200pt" width="52" style="padding-left: 15px; padding-right: 15px; padding-top: 10px;
                         padding-bottom: 10px" align="center">
-                            <font face="ÂÆã‰Ωì">Èô¢</font><p>
-                            <font face="ÂÆã‰Ωì">(Á≥ª)</font></p>
-                            <p>
-                                <font face="ÂÆã‰Ωì">ÂÆ°</font></p>
-                            <p>
-                                <font face="ÂÆã‰Ωì">ÂÆö</font></p>
-                            <p>
-                                <font face="ÂÆã‰Ωì">ÊÑè</font></p>
-                            <p>
-                                <font face="ÂÆã‰Ωì">ËßÅ</font>
-                        </td>
-                        <td height="200pt" colspan="2" style="padding-top: 0; padding-bottom: 0; padding-right: 0">
-                            <p align="center">
-                            </p>
-                            <p align="center">
-                            </p>
-                            <p align="center">
-                            </p>
-                            <p align="center">
-                            </p>
-                            <p align="right" style="width: 440px">
-                                <font face="ÂÆã‰Ωì">Èô¢ÔºàÁ≥ªÔºâ‰∏ª‰ªªÔºàÁ≠æÂ≠óÔºâ</font></p>
-                            <p align="right" style="width: 520px">
-                                <font face="ÂÆã‰Ωì">20&nbsp; &nbsp; Âπ¥&nbsp; &nbsp;Êúà&nbsp; &nbsp;Êó•</font></p>
-                        </td>
-                    </tr>
-                </table>
-                <font face="ÂÆã‰Ωì">
+                        <font face="ÀŒÃÂ">‘∫</font><p>
+                        <font face="ÀŒÃÂ">(œµ)</font></p>
+                        <p>
+                            <font face="ÀŒÃÂ">…Û</font></p>
+                        <p>
+                            <font face="ÀŒÃÂ">∂®</font></p>
+                        <p>
+                            <font face="ÀŒÃÂ">“‚</font></p>
+                        <p>
+                            <font face="ÀŒÃÂ">º˚</font>
+                    </td>
+                    <td height="200pt" colspan="2" style="padding-top: 0; padding-bottom: 0; padding-right: 0">
+                        <p align="center">
+                        </p>
+                        <p align="center">
+                        </p>
+                        <p align="center">
+                        </p>
+                        <p align="center">
+                        </p>
+                        <p align="right" style="width: 440px">
+                            <font face="ÀŒÃÂ">‘∫£®œµ£©÷˜»Œ£®«©◊÷£©</font></p>
+                        <p align="right" style="width: 520px">
+                            <font face="ÀŒÃÂ">20&nbsp; &nbsp; ƒÍ&nbsp; &nbsp;‘¬&nbsp; &nbsp;»’</font></p>
+                    </td>
+                </tr>
+            </table>
+            <font face="ÀŒÃÂ">
 
-                </font>
-            </div>
-        </div> <!--Á¨¨‰∫åÈ°µÁªìÊùü-->
-</for>
-</div><!--ÊñáÊ°£ÊâìÂç∞ÁªìÊùü-->
+            </font>
+        </div>
+    </div> <!--µ⁄∂˛“≥Ω· ¯-->
+
+</div><!--Œƒµµ¥Ú”°Ω· ¯-->
 </body>
 </html>
