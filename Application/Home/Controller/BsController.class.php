@@ -8,7 +8,7 @@ class BsController extends Controller {
 		//$bid = I('get.bid');
 		$bid = I('get.bid','','string');
 		preg_match_all ("/\d/", $bid, $m);
-		print_r($m[0]);
+		//print_r($m[0]);
 		$model_kt = new \Think\Model();
 		//$sentence =
 		$rs_kt = array();
@@ -28,7 +28,7 @@ class BsController extends Controller {
 		$rs_kt = $model_kt->query("select bs_kt.*,user_teacher.name as
 		tname,user_teacher.officephone,user_teacher.email
 		from bs_kt left join user_teacher on bs_kt.teacher=user_teacher.user where id=".$m[0][0]);*/
-		dump($rs_kt);
+		//dump($rs_kt);
 		$this->assign('kt',$rs_kt);
 		$this->display();
 	}
