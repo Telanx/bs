@@ -430,6 +430,19 @@
                             };
                         };
                     </script>
+                    <script>
+                        window.onload=function(){
+                            var oTab=document.getElementById("show-table").getElementsByClassName("viewkt");	//获取表格
+                            var oBtn=document.getElementById("printall");	//获取排序按钮，方便下面的点击操作
+
+                            oBtn.onclick=function(){
+                                for(var i=0;i<oTab.length;i++)
+                                {
+                                    alert("第"+(i+1)+"个的ID="+oTab[i].data-id);
+                                }
+                            };
+                        };
+                    </script>
 					
 				</div>
 			</div>
