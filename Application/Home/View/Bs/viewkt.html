@@ -66,10 +66,11 @@
 <a href="javascript:printdiv('div_document');">打印</a> <a href="javascript:window.close()">关闭</a>
 <a href="renwu.asp?id=8469" target="_blank">任务书</a> <a href="华中科技大学毕业设计(论文)任务书.doc"
                                                        target="_blank">空任务书</a>
-<volist name="kt" id="vo">
-    <p>output:{$vo['name']}</p>
-    <div id="div_document" style="text-align:center;width:280mm;height:auto">
 
+
+    <--!<p>output:{$vo['name']}</p>-->
+    <div id="div_document" style="text-align:center;width:280mm;height:auto">
+        <volist name="kt" id="vo">
         <!--第一页-->
         <div style="height:380mm;background:#FFFFFF;text-align:center;padding-top:10mm;">
             <div align="center">
@@ -371,8 +372,8 @@
                 </font>
             </div>
         </div> <!--第二页结束-->
+        </volist>
 
     </div><!--文档打印结束-->
-</volist>
 </body>
 </html>
