@@ -432,12 +432,7 @@
                 </script>
                 <script>
                     window.onload=function(){
-                        var oTab=document.getElementsByClassName("viewkt");    //获取表格
-                        for (var i=0;i<oTab.length;i++)
-                        {
-                            //oTab[i]=oTab[i].getAttribute('data_id');
-                            alert(oTab[i].getAttribute('data_id'));
-                        }
+
                         //var data_tmp=document.get
                         var oBtn=document.getElementById("printall");   //获取排序按钮，方便下面的点击操作
 
@@ -446,6 +441,13 @@
                             {
                                 alert("第"+(i+1)+"个的ID="+oTab[i]);
                             }*/
+                            var oTab=document.getElementsByClassName("viewkt");    //获取表格
+                            alert("length is"+oTab.length);
+                            for (var i=0;i<oTab.length;i++)
+                            {
+                                //oTab[i]=oTab[i].getAttribute('data_id');
+                                alert(oTab[i].getAttribute('data_id'));
+                            }
                         };
                     };
                 </script>
