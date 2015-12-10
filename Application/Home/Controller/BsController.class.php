@@ -10,7 +10,10 @@ class BsController extends Controller {
 		preg_match_all ("/\d/", $bid, $m);
 		print_r($m[0]);
 		$model_kt = new \Think\Model();
-		$rs_kt = $model_kt->query("select bs_kt.*,user_teacher.name as tname,user_teacher.officephone,user_teacher.email from bs_kt left join user_teacher on bs_kt.teacher=user_teacher.user where id=$bid");
+		$rs_kt = $model_kt->query("select bs_kt.*,user_teacher.name as
+		tname,user_teacher.officephone,user_teacher.email
+		from bs_kt left join user_teacher on bs_kt.teacher=user_teacher.user where id=$m[0][0]");
+		print_r($rs_kt);
 		$this->assign('kt',$rs_kt[0]);
 		$this->display();
 	}
