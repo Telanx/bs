@@ -432,7 +432,12 @@
                 </script>
                 <script>
                     window.onload=function(){
-                        var oTab=document.getElementById("show-table").getElementsByClassName("viewkt").getAttribute('data_id');    //获取表格
+                        var oTab=document.getElementsByClassName("viewkt")    //获取表格
+                        for (var i=0;i<oTab.length;i++)
+                        {
+                            oTab[i]=oTab[i].getAttribute("data_id");
+                        }
+                        //var data_tmp=document.get
                         var oBtn=document.getElementById("printall");   //获取排序按钮，方便下面的点击操作
 
                         oBtn.onclick=function(){
