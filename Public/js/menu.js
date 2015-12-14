@@ -4,7 +4,7 @@
 		var tH = $('#nav-top')?$('#nav-top').outerHeight():0;
 		var de = document.documentElement;
 		var sH = window.outerHeight||de.innerHeight||(de && de.clientHeight)||document.body.clientHeight;//��Ļ���ø߶�
-		//console.log(sH);
+		console.log(sH);
 		var bH = $('#footer').outerHeight();//�ײ��߶�
 		$('#content').css({'min-height':(sH-bH-tH)+'px'});	
 	}
