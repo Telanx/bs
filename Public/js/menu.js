@@ -1,15 +1,15 @@
-//µ÷Õû¸ß¶È
+//ï¿½ï¿½ï¿½ï¿½ï¿½ß¶ï¿½
 (function(){window.onload=window.onresize=function(){
-		//ÊÇ·ñÓÐ±êÌâ
+		//ï¿½Ç·ï¿½ï¿½Ð±ï¿½ï¿½ï¿½
 		var tH = $('#nav-top')?$('#nav-top').outerHeight():0;
 		var de = document.documentElement;
-		var sH = window.outerHeight||de.innerHeight||(de && de.clientHeight)||document.body.clientHeight;//ÆÁÄ»¿ÉÓÃ¸ß¶È
-		console.log(sH);
-		var bH = $('#footer').outerHeight();//µ×²¿¸ß¶È
+		var sH = window.outerHeight||de.innerHeight||(de && de.clientHeight)||document.body.clientHeight;//ï¿½ï¿½Ä»ï¿½ï¿½ï¿½Ã¸ß¶ï¿½
+		//console.log(sH);
+		var bH = $('#footer').outerHeight();//ï¿½×²ï¿½ï¿½ß¶ï¿½
 		$('#content').css({'min-height':(sH-bH-tH)+'px'});	
 	}
 })();
-//µ¯´°
+//ï¿½ï¿½ï¿½ï¿½
 (function(w){
 	w.pop=function(mask,container,title,body){
 	
@@ -32,9 +32,9 @@
 		return this;
 	}
 	function show(){
-		//¾ÓÖÐÎ»ÖÃ
+		//ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
 		
-		var sH = Number(window.outerHeight)-100;//ÆÁÄ»¿ÉÓÃ¸ß¶È
+		var sH = Number(window.outerHeight)-100;//ï¿½ï¿½Ä»ï¿½ï¿½ï¿½Ã¸ß¶ï¿½
 		var cH = parseInt(container.css('height')||100);
 		var mH = Math.abs(sH-100-cH);
 		container.css({
@@ -62,7 +62,7 @@
 };	
 })(window);
 
-//²Ëµ¥Ñ¡ÖÐ
+//ï¿½Ëµï¿½Ñ¡ï¿½ï¿½
 $(function(){
 	(function(d){
 			var url = location.href;
