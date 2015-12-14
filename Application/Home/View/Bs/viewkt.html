@@ -1,9 +1,8 @@
 
-
-<html>
-<head>
+<!-- saved from url=(0041)file:///home/mingtao/Downloads/print.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="Content-Language" content="zh-cn">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
     <title>报审表</title>
 
     <script language="javascript" type="text/javascript">
@@ -61,26 +60,25 @@
 </head>
 
 
-<body style="line-height: 100%;background:url(../../images/right_pic.jpg)">
+<body style="line-height: 100%">
 
-<a href="javascript:printdiv('div_document');">打印</a> <a href="javascript:window.close()">关闭</a>
+<a href="javascript:printdiv(&#39;div_document&#39;);">打印</a> <a href="javascript:window.close()">关闭</a>
 <a href="renwu.asp?id=8469" target="_blank">任务书</a> <a href="华中科技大学毕业设计(论文)任务书.doc"
                                                        target="_blank">空任务书</a>
-<div id="div_document" style="text-align:center;height:auto">
+
+<div id="div_document" style="height:auto">
     <volist name="kt" id="vo">
         <!--第一页-->
-        <div style="height:297mm;background:#FFFFFF;text-align:center">
+        <div style="height:1086px;background:#FFFFFF;text-align:center">
             <div align="center">
                 <p style="line-height:2em">
-                    <b><font size="5" face="宋体" >华中科技大学</font></b></p>
+                    <b><font size="5" face="宋体">华中科技大学</font></b></p>
                 <p>
                     <b><font size="5" face="宋体">本科生毕业设计(论文)课题报审表</font></b></p>
                 <font face="宋体">
                 </font>
-                <table border="1" width="90%" bordercolor="#000000" cellpadding="14" id="table1"
-                       style="border-collapse: collapse; text-align: center; letter-spacing: -1pt; font-family: 华文仿宋"
-                       cellspacing="0" height="79%">
-                    <tr>
+                <table border="1" width="90%" bordercolor="#000000" cellpadding="14" id="table1" style="border-collapse: collapse; text-align: center; letter-spacing: -1pt; font-family: 华文仿宋" cellspacing="0" height="78%">
+                    <tbody><tr>
                         <td colspan="2" width="110" height="35" style="padding-left: 1px; padding-right: 1px;
                         padding-top: 5px; padding-bottom: 5px">
                             <font face="宋体" size="3">课题名称</font>
@@ -97,20 +95,20 @@
                                 {$vo['snum']}</font>
                         </td>
                     </tr>
-                    <tr id='type'>
+                    <tr id="type">
                         <td colspan="2" width="110" height="35" style="padding-left: 1px; padding-right: 1px; padding-top: 5px;
                         padding-bottom: 5px" class="style8">
                             <font face="宋体" size="3">题目类型</font>
                         </td>
-                        <td colspan=6>{$vo['type']}</td>
+                        <td colspan="6">{$vo['type']}</td>
                     </tr>
 
-                    <tr id='way'>
+                    <tr id="way">
                         <td colspan="2" height="35" style="padding-left: 1px; padding-right: 1px; padding-top: 5px;
                         padding-bottom: 5px" class="style8">
                             <font face="宋体" size="3">进行方式</font>
                         </td>
-                        <td colspan=6>{$vo['way']}</td>
+                        <td colspan="6">{$vo['way']}</td>
                     </tr>
 
                     <tr>
@@ -118,7 +116,7 @@
                         padding-bottom: 5px">
                             <font face="宋体" size="3">课题来源</font>
                         </td>
-                        <td colspan="6"  align=left style="padding-top: 5px; padding-bottom: 5px">
+                        <td colspan="6" align="left" style="padding-top: 5px; padding-bottom: 5px">
                             <font face="宋体" size="3">
                                 {$vo['origin']}
                             </font>
@@ -129,7 +127,7 @@
                         padding-bottom: 10px">
                             <font face="宋体" size="3">目的要求</font>
                         </td>
-                        <td colspan="6"  align=left style="padding-top: 10px; padding-bottom: 10px">
+                        <td colspan="6" align="left" style="padding-top: 10px; padding-bottom: 10px">
                             <font face="宋体" size="3">
                                 {$vo['require']}</font>
                         </td>
@@ -139,7 +137,7 @@
                         padding-bottom: 20px" class="style6">
                             <font face="宋体" size="3">主要内容</font>
                         </td>
-                        <td colspan="6" align=left style="padding-top: 20px; padding-bottom: 20px" class="style6">
+                        <td colspan="6" align="left" style="padding-top: 20px; padding-bottom: 20px" class="style6">
                             <font face="宋体" size="3">
                                 {$vo['content']}</font>
                         </td>
@@ -149,7 +147,7 @@
                         padding-bottom: 10px" class="style5">
                             <font face="宋体" size="3">预期目标</font>
                         </td>
-                        <td colspan="6" align=left style="padding-top: 10px; padding-bottom: 10px" class="style5">
+                        <td colspan="6" align="left" style="padding-top: 10px; padding-bottom: 10px" class="style5">
                             <font face="宋体" size="3">
                                 {$vo['goal']}</font>
                         </td>
@@ -167,22 +165,21 @@
                                 <font face="宋体" size="3">件 </font>
                             </p>
                         </td>
-                        <td width="50" height="20" style="padding-left: 1px;padding-right: 1px; padding-top: 0; padding-bottom: 0"
-                            class="style4">
+                        <td width="50" height="20" style="padding-left: 1px;padding-right: 1px; padding-top: 0; padding-bottom: 0" class="style4">
                             <font face="宋体" size="3">经&nbsp;费</font>
                         </td>
-                        <td colspan="6" align=left style="padding-top: 0; padding-bottom: 0" class="style4">
+                        <td colspan="6" align="left" style="padding-top: 0; padding-bottom: 0" class="style4">
                             <font face="宋体" size="3">{$vo['found']}万元</font>
                         </td>
                     </tr>
-                    <tr height="75pt" >
+                    <tr height="75pt">
                         <td width="50" style="padding-left: 1px; padding-right: 1px; padding-top: 0; padding-bottom: 0">
                             <p>
-                                <font face="宋体" size="3">实验加</font><br/>
-                                <font face="宋体" size="3">工条件</font><br/>
+                                <font face="宋体" size="3">实验加</font><br>
+                                <font face="宋体" size="3">工条件</font><br>
                                 <font face="宋体" size="3"></font></p>
                         </td>
-                        <td colspan="6" align=left style="padding-top: 0; padding-bottom: 0" >
+                        <td colspan="6" align="left" style="padding-top: 0; padding-bottom: 0">
                             <font face="宋体" size="3">{$vo['env']}</font>
                         </td>
                     </tr>
@@ -195,7 +192,7 @@
                             <p style="height: 2px">
                                 <font face="宋体" size="3">资&nbsp;料</font></p>
                         </td>
-                        <td colspan="6" align=left style="padding-top: 0; padding-bottom: 0" class="style3">
+                        <td colspan="6" align="left" style="padding-top: 0; padding-bottom: 0" class="style3">
                             <font face="宋体" size="3">{$vo['reference']}</font>
                         </td>
                     </tr>
@@ -227,7 +224,7 @@
                         <td colspan="2" style="padding-top: 0; padding-bottom: 0" class="style1">
                             <font size="3"><font face="宋体">联系方式<br>
                             </font>
-                        </td>
+                            </font></td>
                         <td style="padding-top: 0; padding-bottom: 0" class="style1">
                             <font face="宋体" size="3">电话</font>
                         </td>
@@ -240,10 +237,10 @@
                         </td>
                         <td colspan="3" style="padding-top: 0; padding-bottom: 0" class="style1">
                             <font size="3">
-                                {$vo['email']}</font></font></font>
+                                {$vo['email']}</font>
                         </td>
                     </tr>
-                </table>
+                    </tbody></table>
 
             </div>
             <p align="center">
@@ -252,11 +249,10 @@
         </div>
 
         <!--第二页-->
-        <div style="height:297mm;background:#FFFFFF;text-align:center">
+        <div style="/* height:1086px; */background:#FFFFFF;text-align:center">
             <div align="center">
-                <table border="1" cellpadding="30" cellspacing="0" style="padding: 0; border-collapse: collapse"
-                       width="87%" height="78%" bordercolor="#000000" id="table2">
-                    <tr>
+                <table border="1" cellpadding="30" cellspacing="0" style="padding: 0; border-collapse: collapse" width="87%" height="78%" bordercolor="#000000" id="table2">
+                    <tbody><tr>
                         <td rowspan="8" style="padding-left: 15px; padding-right: 15px" align="center">
                             <font face="宋体">教</font><p>
                             <font face="宋体">研</font></p>
@@ -274,7 +270,7 @@
                                 <font face="宋体">意</font></p>
                             <p>
                                 <font face="宋体">见</font>
-                        </td>
+                            </p></td>
                         <td width="259" height="70pt" style="padding-top: 10px; padding-bottom: 10px">
                             <font face="宋体">1、本课题能否满足综合训练学生的教学要求</font>
                         </td>
@@ -334,7 +330,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td height="190pt" width="52" style="padding-left: 15px; padding-right: 15px; padding-top: 10px;
+                        <td height="190pt" width="52" style="padding-left: 15px; padding-right: 15px; 
                         " align="center">
                             <font face="宋体">院</font><p>
                             <font face="宋体">(系)</font></p>
@@ -346,7 +342,7 @@
                                 <font face="宋体">意</font></p>
                             <p>
                                 <font face="宋体">见</font>
-                        </td>
+                            </p></td>
                         <td height="190pt" colspan="2" style="padding-top: 0; padding-bottom: 0; padding-right: 0">
                             <p align="center">
                             </p>
@@ -362,14 +358,13 @@
                                 <font face="宋体">20&nbsp; &nbsp; 年&nbsp; &nbsp;月&nbsp; &nbsp;日</font></p>
                         </td>
                     </tr>
-                </table>
-                <font face="宋体">
+                    </tbody></table>
 
-                </font>
             </div>
         </div> <!--第二页结束-->
     </volist>
 
 </div><!--文档打印结束-->
-</body>
-</html>
+
+
+</body></html>
