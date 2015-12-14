@@ -411,8 +411,8 @@
                     window.onload=function(){
                         var oTab=document.getElementById("show-table"); //获取表格
                         var oBtn=document.getElementById("teacher-sort");   //获取排序按钮，方便下面的点击操作
-                        var oBtn2=document.getElementById("printall");   //获取排序按钮，方便下面的点击操作
-                        
+                        //var oBtn2=document.getElementById("printall");   //获取排序按钮，方便下面的点击操作
+
                         oBtn.onclick=function(){
                             var arr=[];     //定义一个空的数组
                             for(var i=0;i<oTab.tBodies[0].rows.length;i++){
@@ -433,11 +433,11 @@
                         //var data_tmp=document.get
 
 
-                        oBtn2.onclick=function(){
-                            /*for(var i=0;i<oTab.length;i++)
+                        /*oBtn2.onclick=function(){
+                            for(var i=0;i<oTab.length;i++)
                             {
                                 alert("第"+(i+1)+"个的ID="+oTab[i]);
-                            }*/
+                            }
                             var oTab=document.getElementsByClassName("viewkt");    //获取表格
                             //alert("length is"+oTab.length);
                             var str_arr = "";
@@ -447,7 +447,7 @@
                                 str_arr=str_arr+oTab[i].getAttribute('data_id')+"_";
                             }
                             window.location.href("/index.php/Home/Bs/viewkt.html?bid="+str_arr);
-                        };
+                        };*/
                     };
                 </script>
 
