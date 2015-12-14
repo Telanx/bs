@@ -406,11 +406,13 @@
                     </div>
                 </div>
 
+
                 <script>
                     window.onload=function(){
                         var oTab=document.getElementById("show-table"); //获取表格
                         var oBtn=document.getElementById("teacher-sort");   //获取排序按钮，方便下面的点击操作
-
+                        var oBtn2=document.getElementById("printall");   //获取排序按钮，方便下面的点击操作
+                        
                         oBtn.onclick=function(){
                             var arr=[];     //定义一个空的数组
                             for(var i=0;i<oTab.tBodies[0].rows.length;i++){
@@ -428,15 +430,10 @@
                                 oTab.tBodies[0].appendChild(arr[i]);    //把上面sort排好序的元素一行行地按顺序重新插入到表格中
                             }
                         };
-                    };
-                </script>
-                <script>
-                    window.onload=function(){
-
                         //var data_tmp=document.get
-                        var oBtn=document.getElementById("printall");   //获取排序按钮，方便下面的点击操作
 
-                        oBtn.onclick=function(){
+
+                        oBtn2.onclick=function(){
                             /*for(var i=0;i<oTab.length;i++)
                             {
                                 alert("第"+(i+1)+"个的ID="+oTab[i]);
@@ -449,7 +446,7 @@
                                 //oTab[i]=oTab[i].getAttribute('data_id');
                                 str_arr=str_arr+oTab[i].getAttribute('data_id')+"_";
                             }
-                            window.location.assign("/index.php/Home/Bs/viewkt.html?bid="+str_arr);
+                            window.location.href("/index.php/Home/Bs/viewkt.html?bid="+str_arr);
                         };
                     };
                 </script>
