@@ -80,6 +80,7 @@ class BsController extends Controller {
 		$model_xt = D('Xt');
 		$post = I('post.');
         //dump($post);
+        echo($type);
 		if($type=='search'){
 		//查询
 			$rs_kt = $model_xt->search(I('post.'));

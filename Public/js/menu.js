@@ -1,6 +1,6 @@
-//�����߶�
+
 (function(){window.onload=window.onresize=function(){
-		//�Ƿ��б���
+
 		var tH = $('#nav-top')?$('#nav-top').outerHeight():0;
 		var de = document.documentElement;
 		var sH = window.outerHeight||de.innerHeight||(de && de.clientHeight)||document.body.clientHeight;//��Ļ���ø߶�
@@ -9,7 +9,7 @@
 		$('#content').css({'min-height':(sH-bH-tH)+'px'});	
 	}
 })();
-//����
+
 (function(w){
 	w.pop=function(mask,container,title,body){
 	
@@ -32,9 +32,9 @@
 		return this;
 	}
 	function show(){
-		//����λ��
+
 		
-		var sH = Number(window.outerHeight)-100;//��Ļ���ø߶�
+		var sH = Number(window.outerHeight)-100;
 		var cH = parseInt(container.css('height')||100);
 		var mH = Math.abs(sH-100-cH);
 		container.css({
@@ -62,7 +62,7 @@
 };	
 })(window);
 
-//�˵�ѡ��
+
 $(function(){
 	(function(d){
 			var url = location.href;
