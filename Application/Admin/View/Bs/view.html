@@ -377,7 +377,7 @@
                         </form>
 
                     </div>
-                    <input type="button" name="teacher-sort" id="teacher-sort" class="button bg-main" style="margin-left:10px" value="按教师排序"> </input>
+                    <input type="button" name="teacher-sort" id="teacher-sort" class="button bg-main" style="margin-left:10px" value="按教师排序" onclick="javascript:sort_onclick();"/>
                     <input type="button" name="printall" id="printall" class="button bg-main" style="margin-left:10px" value="批量打印"> </input>
                     <!--结果区域--->
                     <div class='right-result'>
@@ -410,10 +410,10 @@
                 <script>
                     window.onload=function(){
                         var oTab=document.getElementById("show-table"); //获取表格
-                        var oBtn=document.getElementById("teacher-sort");   //获取排序按钮，方便下面的点击操作
-                        //var oBtn2=document.getElementById("printall");   //获取排序按钮，方便下面的点击操作
+                        //var oBtn=document.getElementById("teacher-sort");   //获取排序按钮，方便下面的点击操作
+                        var oBtn2=document.getElementById("printall");   //获取排序按钮，方便下面的点击操作
 
-                        oBtn.onclick=function(){
+                        function sort_onclick(){
                             var arr=[];     //定义一个空的数组
                             for(var i=0;i<oTab.tBodies[0].rows.length;i++){
                                 arr[i]=oTab.tBodies[0].rows[i];     //把表格的所有行数都存到arr数组里
@@ -433,7 +433,7 @@
                         //var data_tmp=document.get
 
 
-                        /*oBtn2.onclick=function(){
+                        oBtn2.onclick=function(){
                             for(var i=0;i<oTab.length;i++)
                             {
                                 alert("第"+(i+1)+"个的ID="+oTab[i]);
@@ -447,7 +447,7 @@
                                 str_arr=str_arr+oTab[i].getAttribute('data_id')+"_";
                             }
                             window.location.href("/index.php/Home/Bs/viewkt.html?bid="+str_arr);
-                        };*/
+                        };
                     };
                 </script>
 
