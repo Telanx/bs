@@ -95,10 +95,14 @@
                             r = res.r;
                     for(var i=0;i<rl;i++){
 
-                        $('.search-result-table').append("<tr><td><a href=# class='viewkt' data_id="+r[i].id+">"+r[i].bname+'</a></td><td><a href=# class="viewls" data_id='+r[i].tuser+'>'+r[i].tname+'</a></td><td>'+(r[i].dep||'-')+'</td><td><a href=# data_id='+r[i].suser+'>'+(r[i].sname||'指定学生')+'</a></td></tr>');
+                        $('.search-result-table').append("<tr><td><a href=# class='viewkt' " +
+                        "data_id="+r[i].id+">"+r[i].bname+'</a></td><td><a href=# class="viewls" ' +
+                        'data_id='+r[i].tuser+'>'+r[i].tname+'</a></td><td>'+(r[i].dep||'-')+
+                        '</td><td><a href=# data_id='+r[i].suser+'>'+(r[i].sname||'指定学生')+'</a></td></tr>');
                     }
                     //显示或者隐藏分页
-                    page({current:p_c,total:p_t},{page_prev:$('.btn-page-prev'),page_next:$('.btn-page-next'),page_num:$('.page-num')});
+                    page({current:p_c,total:p_t},{page_prev:$('.btn-page-prev'),page_next:$('.btn-page-next'),
+                        page_num:$('.page-num')});
                     if(rl==0){
                         $('.search-result-table').append('<tr><td colspan=5>无任何相关结果。<td></tr>');
                         $('.page').hide();
@@ -128,7 +132,9 @@
                             '<div class="user_info" style="width:400px;margin:20px auto">\
                             <div class="info-left">\
                                 <div class="pic" style="float:left;width:195px;height:195px">\
-                                    <img width="160px" height="195px"\ src="'+(r.pic||'https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=801265354,741403095&fm=58')+'"></div>\
+                                    <img width="160px" height="195px"\ src="'+
+                            (r.pic||'https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=801265354,741403095&fm=58')+'">\
+                            </div>\
                     <div class="info_right">\
                         <table style="line-height:40px">\
                         <tr><td>工号：</td><td>'+r.user+'</td></tr>\
@@ -254,7 +260,8 @@
                                     if(!m.disable && f[m.id]){
                                         f[m.id]=false;
                                         console.log("监听事件");
-                                        $(".contextmenu").one("click","."+m.id,function(){m.fn();f[m.id] = null;console.log("移除事件");});
+                                        $(".contextmenu").one("click","."+m.id,function(){m.fn();f[m.id] = null;
+                                            console.log("移除事件");});
                                     }
                                 }
                                 if(i==menuObj.menus.length-1){
