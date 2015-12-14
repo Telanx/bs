@@ -91,7 +91,7 @@ class UserController extends Controller {
 					$path = $file['tmp_name'];
 					if(file_exists($path)){
 						$type = $_POST['type'];
-						$f = fopen($path);
+						$f = fopen($path,"r+");
 						$str_a= file($path);
 						$model = D('User');
 						$str = $model->account_file($type,$str_a);
