@@ -74,6 +74,7 @@ class BsController extends Controller {
 
     public function assign_kt(){
         $ass_post = I('post.');
+        dump($ass_post);
         $stu_sid = I('post.sid');
         $kt_bid = I('post.bid');
         $model_kt = new \Think\Model();
