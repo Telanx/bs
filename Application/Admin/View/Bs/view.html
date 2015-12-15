@@ -350,9 +350,10 @@
 
             $('.search-result-table').on('click','.assign_student',function(e){
                 e.preventDefault();
-                var user = Document.getElementsByClassName("assign_student");
-                var sid = user.parentNode;
-                alert(sid);
+                var user = $(e.target).parent().next().text();
+                //var user = Document.getElementsByClassName("assign_student");
+                //var sid = user.parentNode;
+                //alert(sid);
                 var link_edit_html ="<iframe style='width:100%;height:100%' src={:U('Admin/Bs/assign_kt')}?kt="+user+"></iframe>";
                 popup.setTitle('指定学生').setCss({marginTop:'50px',width:'530px',height:'400px'}).setBodyCss({height:'100%'}).setBody(link_edit_html).show();
 
