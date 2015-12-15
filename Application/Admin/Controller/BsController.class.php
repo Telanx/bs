@@ -74,7 +74,7 @@ class BsController extends Controller {
 
     public function assign_kt(){
         $ass_post = I('post.');
-        dump($ass_post);
+        //dump($ass_post);
         $stu_sid = I('post.sid');
         $kt_bid = I('post.bid');
         $model_kt = new \Think\Model();
@@ -90,6 +90,8 @@ class BsController extends Controller {
                 'msg'=>'操作成功！'
             );
             $model_kt->query("INSERT INTO bs_xt(bid,sid) VALUE(".$kt_bid.",".$stu_sid.");");
+            echo("插入操作的返回值");
+            dump($model_kt);
         }
         $this->ajaxReturn($msg);
 
