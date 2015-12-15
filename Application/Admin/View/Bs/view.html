@@ -99,7 +99,7 @@
                             $tag_content = '</td><td><a href=# data_id='+r[i].suser+'>'+(r[i].sname||'指定学生')+'</a></td></tr>';
                         }
                         else
-                            $tag_content = '</td><td><button class=\" assign_student\" >指定学生 </button></td></tr>';
+                            $tag_content = '</td><td><button class=\" assign_student\" kt_id='+r[i].id+' >指定学生 </button></td></tr>';
                         $('.search-result-table').append("<tr><td><a href=# class='viewkt' " +
                         "data_id="+r[i].id+">"+r[i].bname+'</a></td><td><a href=# class="viewls" ' +
                         'data_id='+r[i].tuser+'>'+r[i].tname+'</a></td><td>'+(r[i].dep||'-')+
