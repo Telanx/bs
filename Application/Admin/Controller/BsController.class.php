@@ -97,8 +97,8 @@ class BsController extends Controller {
                 'bid'=>I('post.bid')
             );
             $model->add($insert_data);
-            echo("插入操作的返回值");
-            dump($insert_data);
+            //echo("插入操作的返回值");
+            //dump($insert_data);
         }
         //$this->ajaxReturn($msg);
         $this->assign("user",$msg);
