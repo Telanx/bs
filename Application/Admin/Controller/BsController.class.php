@@ -75,10 +75,12 @@ class BsController extends Controller {
     public function assign_kt(){
         $ass_post = I('post.');
         //dump($ass_post);
+        $model = M('bs_xt');
         $stu_sid = I('post.sid');
         $kt_bid = I('post.bid');
         $model_kt = new \Think\Model();
-        if($model_kt->query("select * from bs_xt where sid=".$stu_sid.";")){
+        $search_result=$model->where("sid='$stu_sid'")->count();
+        if($search_result[0]){
             $msg=array(
                 'status'=>0,
                 'msg'=>'操作失败！'
@@ -89,9 +91,14 @@ class BsController extends Controller {
                 'status'=>1,
                 'msg'=>'操作成功！'
             );
-            $model_kt->query("INSERT INTO bs_xt(bid,sid) VALUE(".$kt_bid.",".$stu_sid.");");
+            //$model_kt->query("INSERT INTO bs_xt(bid,sid) VALUE(".$kt_bid.",".$stu_sid.");");
+            $insert_data=array(
+                'sid'=>I('post.sid'),
+                'bid'=>I('post.bid')
+            );
+            $model->add($insert_data);
             echo("插入操作的返回值");
-            dump($model_kt);
+            dump($insert_data);
         }
         $this->ajaxReturn($msg);
 
