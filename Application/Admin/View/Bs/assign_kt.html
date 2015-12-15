@@ -41,68 +41,29 @@
 
 </head>
 
-<body>
+<body onload="Load('/index.php/Admin/Bs/view.html?dep=0&search=')">
 
-<div class='user-info'>
-    <div class='info-left'>
-        <div class='pic'><img src="{$user[pic]?$user[pic]:'https://ss1&#46;baidu&#46;com/6ONXsjip0QIZ8tyhnq/it/u=801265354,741403095&fm=58'}" width="180px" height="270px"/></div>
+<p>状态是：{$user.msg}</p>
 
+<div id="ShowDiv">
     </div>
-
-    <div class='info-right'>
-        <form method="post" action="{:U('Admin/Bs/assign_kt')}?user={$user.user}">
-            <table>
-                <tr><td>学号：</td><td>{$user.user}</td></tr>
-            </table>
-            <div class='op'>
-                <button class='button btn-confirm' >确认更新</button>
-            </div>
-        </form>
-    </div>
-
-
-    <div class='msg'>{$user.msg}</div>
-    <script>
-        /*var dep_list ={$class.v};
-         var obj = document.getElementById("dep-list");
-
-         for (var i=0;i<dep_list.length;i++)
-         {
-         var option = document.createElement('option');
-         option.innerHTML = dep_list[i];
-         obj.appendChild(option);
-         }*/
-    </script>
-    <script type='text/javascript'>
-        $(function(){
-            var dep_list ={$class.v};
-        var dep ="{$user['class']==null?'计科一班':$user['class']}";
-        (function(l,d,dom){$.each(l,function(i,e){dom.append('<option value='+e+' '+(e==d?'selected':'')+'>'+e+'</option>');})})(dep_list,dep,$('#dep-list'));
-
-        //var=Sring.fromCharCode({$user.status}); //同样暂时是空值
-        $('input[name=status]:eq('+(1-s)+')').attr('checked',true);
-
-        $('.btn-confirm').click(function(e){
-            //检验参数是否正确
-            var pwd =$('input[name=pwd]').val();
-            var pwd2=$('input[name=pwd2]').val();
-            if(pwd!=pwd2){
-                var msg_node =$('.msg');
-                msg_node.html('2次密码输入不一致，请重试！');
-                for(i=0;i<3;i++){
-                    msg_node.animate({'marginLeft':'-20px'},30).animate({'marginLeft':'0px'},30).animate({'marginLeft':'20px'},30).animate({'maeginLeft':'0px'},30);
-                }
-
-                return false;
-            }
-            $('form').submit();
-        })
-        })
-
-    </script>
-</div>
-
-
 
 </body>
+
+<script language="javascript">
+    var secs = 3; //倒计时的秒数
+    var URL ;
+    function Load(url){
+        URL = url;
+        for(var i=secs;i>=0;i--)
+        {
+            window.setTimeout('doUpdate(' + i + ')', (secs-i) * 1000);
+        }
+    }
+    function doUpdate(num)
+    {
+        document.getElementById('ShowDiv').innerHTML = '将在'+num+'秒后自动跳转到主页' ;
+        if(num == 0) { window.location = URL; }
+    }
+</script>
 </html>

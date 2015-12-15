@@ -101,7 +101,8 @@ class BsController extends Controller {
             dump($insert_data);
         }
         //$this->ajaxReturn($msg);
-        $this->view();
+        $this->assign("user",$msg);
+        $this->display();
 
     }
 	
