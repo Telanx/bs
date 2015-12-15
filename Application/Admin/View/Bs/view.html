@@ -351,11 +351,11 @@
             $('.search-result-table').on('click','.assign_student',function(e){
                 e.preventDefault();
                 var user = $(e.target).parent().next().text();
-                console.log(user);
+                console.trace(user);
                 //var user = Document.getElementsByClassName("assign_student");
                 //var sid = user.parentNode;
                 //alert(sid);
-                var link_edit_html ="<html> <head><body><form>" +
+                var link_edit_html ="<html> <head><body><h3>请指定学生</h3><form>" +
                                 ""
                         +"</form></body></head></html>";
                 popup.setTitle('指定学生').setCss({marginTop:'50px',width:'530px',height:'400px'}).setBodyCss({height:'100%'}).setBody(link_edit_html).show();
