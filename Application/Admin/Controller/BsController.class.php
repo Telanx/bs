@@ -73,10 +73,6 @@ class BsController extends Controller {
 	}
 
     public function assign_kt(){
-        $this->login_check(2);
-        $model_sel = M('bs_kt_sel');
-        $rs_sel = $model_sel->field('v')->where("k='class'")->select();
-        $this->assign('class',$rs_sel[0]);
         $ass_post = I('post.');
         $stu_sid = I('post.sid');
         $kt_bid = I('post.bid');
