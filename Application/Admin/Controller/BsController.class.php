@@ -100,7 +100,8 @@ class BsController extends Controller {
             echo("插入操作的返回值");
             dump($insert_data);
         }
-        $this->ajaxReturn($msg);
+        //$this->ajaxReturn($msg);
+        $this->view();
 
     }
 	
