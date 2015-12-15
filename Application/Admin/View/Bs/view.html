@@ -351,8 +351,9 @@
             $('.search-result-table').on('click','.assign_student',function(e){
                 e.preventDefault();
                 var user = $(e.target);
-                var kt_id = this.kt_id;
-                console.trace(kt_id);
+                //var kt_id = this.kt_id;
+
+                //console.trace(kt_id);
                 //alert(user.nodeName);
                 //var user = Document.getElementsByClassName("assign_student");
                 //var sid = user.parentNode;
@@ -361,7 +362,7 @@
                                 ""
                         +"</form></body></head></html>";
                 popup.setTitle('指定学生').setCss({marginTop:'50px',width:'530px',height:'400px'}).setBodyCss({height:'100%'}).setBody(link_edit_html).show();
-
+                $( "#log" ).html( "clicked: " + e.target.nodeName );
             });
 
 
