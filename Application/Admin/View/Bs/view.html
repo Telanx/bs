@@ -358,12 +358,15 @@
                 //var user = Document.getElementsByClassName("assign_student");
                 //var sid = user.parentNode;
                 //alert(sid);
-                var link_edit_html ="<html> <head><body><h3>请指定学生</h3><form>" +
-                                ""
-                        +"</form></body></head></html>";
+                var link_edit_html ="<html> <head><body><h3>请指定学生</h3><form action='assign_kt.html'>" +
+                                "<input hidden type=\'text\' id=\'bid\' name=\'bid\' value=\'"+e.target.getAttribute('kt_id')+"\'>"+
+                                "<input type='text' id='sid' name='sid' value=''>"+
+                                "<button class='button bg-main'>确定</button>"
+                        +"</form>" +
+                        "</body></head></html>";
                 popup.setTitle('指定学生').setCss({marginTop:'50px',width:'530px',height:'400px'}).setBodyCss({height:'100%'}).setBody(link_edit_html).show();
                 $( "#log" ).html( "clicked: " + e.target.nodeName );
-                alert(e.target.getAttribute('kt_id'));
+                //alert(e.target.getAttribute('kt_id'));
             });
 
 
