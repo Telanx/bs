@@ -350,9 +350,9 @@
 
             $('.search-result-table').on('click','.assign_student',function(e){
                 e.preventDefault();
-                var user = $(e.target).nodeName;
-                //console.trace(user);
-                alert(user.nodeName);
+                var user = $(e.target).parentNode;
+                console.trace(user);
+                //alert(user.nodeName);
                 //var user = Document.getElementsByClassName("assign_student");
                 //var sid = user.parentNode;
                 //alert(sid);
