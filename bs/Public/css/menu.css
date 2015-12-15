@@ -1,0 +1,108 @@
+/***通用菜单样式****/
+#content{
+	min-width:936px;
+	background:#fff;
+}
+#footer{
+	background:#eee;
+	box-shadow:0 -1px 1px rgba(0,0,0,0.2);
+	height:45px;
+}
+#footer p{
+	padding:0;
+	margin:0;
+	line-height:45px;
+}
+.left{
+	border-right:1px solid #e7e7eb;
+	border-bottom:1px solid #e7e7eb;
+}
+.right{
+	padding-left:20px;
+	
+}
+
+.user-img{
+	width:100px;
+	margin:0 auto;
+}
+.mainmenu{
+	padding:10px 0;
+	font-size:14px;
+	color:rgb(178,178,178);
+	border-top: 1px solid #e7e7eb;
+}
+.link{
+	color:#000;
+}
+.link:not(.selected):hover{
+	background:rgb(222,222,220);
+	cursor:pointer;
+}
+.selected{
+	background:#44b549;
+}
+.selected a{
+	color:#fff;
+}
+.icon-logo{
+	margin:0 10px;
+}
+dd{
+	padding:0;
+	margin:0;
+	line-height:34px;
+}
+.menu .active{
+	background: #0a8;
+	color: #fff;
+}
+.mainmenu a{
+	display:block;
+}
+dd a{
+	padding-left:33px;
+}
+/**弹出窗口关闭**/
+.icon-times:hover{
+		color:#f00;
+	}
+	
+	/***教师菜单css**/
+	.view{
+		text-decoration:underline;
+	}
+	
+	.tab_nav:not(.tab_selected):hover{
+		border-bottom:4px solid #aaa;
+	}
+	.tab_selected{
+		border-bottom:4px solid rgb(68,181,73);
+	}
+	.box{
+	width:150px;
+	height:150px;
+	border-radius:75px;
+	border:1px solid rgb(68,181,73);
+	float:left;
+	margin-right:30px;
+	}
+	.box>.num{
+		font-size:23px;
+		color:rgb(47,175,255);
+		height:100px;
+		line-height:100px;
+		text-align:center;
+		
+		
+	}
+	.box>.desc{
+		text-align:center;
+		font-size:14px;
+		color:#aaa;
+	}
+	.user-info .user-type{
+		margin-top:-15px;
+		font-size:10px;
+		color:#aaa;
+	}

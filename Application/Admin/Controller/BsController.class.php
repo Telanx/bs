@@ -72,6 +72,30 @@ class BsController extends Controller {
 		
 	}
 
+    public function assign_kt(){
+        $ass_post = I('post.');
+        //dump($ass_post);
+        $stu_sid = I('post.sid');
+        $kt_bid = I('post.bid');
+        $model_kt = new \Think\Model();
+        if($model_kt->query("select * from bs_xt where sid=".$stu_sid.";")){
+            $msg=array(
+                'status'=>0,
+                'msg'=>'操作失败！'
+            );
+        }
+        else{
+            $msg=array(
+                'status'=>1,
+                'msg'=>'操作成功！'
+            );
+            $model_kt->query("INSERT INTO bs_xt(bid,sid) VALUE(".$kt_bid.",".$stu_sid.");");
+            echo("插入操作的返回值");
+            dump($model_kt);
+        }
+        $this->ajaxReturn($msg);
+
+    }
 	
 	//历史数据查询
 	public function history(){

@@ -124,7 +124,7 @@
 						</div>
 						<div class="panel-body">
 						<volist name='file' id='file'>
-						<p>[{$file['publishtime']|substr=5,5}]<span class='icon-file-{$file.type}-o'></span><a href='/bs/{$file.fileurl}'>{$file.title|urldecode}</a></p>
+						<p>[{$file['publishtime']|substr=5,5}]<span class='icon-file-{$file.type}-o'></span><a href='/{$file.fileurl}'>{$file.title|urldecode}</a></p>
 						</volist>
 						
 						</div>

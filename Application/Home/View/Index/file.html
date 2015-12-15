@@ -155,7 +155,7 @@ window.onresize=function(){autoPlay();}
 						<!---瀑布流资料下载--->
 							<volist name='file' id='file'>
                             	 <li class="grid">
-                                    <strong><a href="/bs/{$file.fileurl}">{$file.title|urldecode}</a></strong>                                   
+                                    <strong><a href="/{$file.fileurl}">{$file.title|urldecode}</a></strong>                                   
                                     <div class="meta"><a href="{$file.fileurl}"></a>类型：{$file.type}<span class='icon-file-{$file.type}-o'></span><br>{$file.publishtime}</div>
                                 </li>   
 							</volist>

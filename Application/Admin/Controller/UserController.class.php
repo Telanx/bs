@@ -91,7 +91,7 @@ class UserController extends Controller {
 					$path = $file['tmp_name'];
 					if(file_exists($path)){
 						$type = $_POST['type'];
-						$f = fopen($path);
+						$f = fopen($path,"r+");
 						$str_a= file($path);
 						$model = D('User');
 						$str = $model->account_file($type,$str_a);
@@ -228,6 +228,7 @@ class UserController extends Controller {
 		$this->assign('user',$user);
 		$this->display();
 	}
+	//修改教师信息
 	public function teacher_edit(){
 		$this->login_check(1);
 		$model_sel = M('bs_kt_sel');
@@ -241,20 +242,24 @@ class UserController extends Controller {
 				$pwd= I('post.pwd');
 				$pwd2 = I('post.pwd2');
 				$data = I('post.');
-				
+				$status = I('post.status');
+
 				if(trim($pwd)!=trim($pwd2))$msg = '2次密码输入不一致，请重试！';
 				else if(trim($pwd)=='')unset($data['pwd']);//为空则不需要更改密码
 				else{
 						$d=array(
 						'user'=>$user,
-						'pwd'=>md5($pwd)
+						'pwd'=>md5($pwd),
+								//'status'=> $status,//加入状态
 					);
 					$model_pwd = M('user_teacher_pwd');
 					$model_pwd->where("user='$user'")->save($d);
 					
 				}
+				//$tmp = $data['status'];
 				$rs_user = $model_user->where("user='$user'")->save($data);
 				if($rs_user)$msg='更新成功！';
+					//echo $rs_user;
 				else $msg = '更新失败！';
 			}
 			

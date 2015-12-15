@@ -1,15 +1,15 @@
-//调整高度
+
 (function(){window.onload=window.onresize=function(){
-		//是否有标题
+
 		var tH = $('#nav-top')?$('#nav-top').outerHeight():0;
 		var de = document.documentElement;
-		var sH = window.outerHeight||de.innerHeight||(de && de.clientHeight)||document.body.clientHeight;//屏幕可用高度
+		var sH = window.outerHeight||de.innerHeight||(de && de.clientHeight)||document.body.clientHeight;//锟斤拷幕锟斤拷锟矫高讹拷
 		console.log(sH);
-		var bH = $('#footer').outerHeight();//底部高度
+		var bH = $('#footer').outerHeight();//锟阶诧拷锟竭讹拷
 		$('#content').css({'min-height':(sH-bH-tH)+'px'});	
 	}
 })();
-//弹窗
+
 (function(w){
 	w.pop=function(mask,container,title,body){
 	
@@ -32,9 +32,9 @@
 		return this;
 	}
 	function show(){
-		//居中位置
+
 		
-		var sH = Number(window.outerHeight)-100;//屏幕可用高度
+		var sH = Number(window.outerHeight)-100;
 		var cH = parseInt(container.css('height')||100);
 		var mH = Math.abs(sH-100-cH);
 		container.css({
@@ -62,7 +62,7 @@
 };	
 })(window);
 
-//菜单选中
+
 $(function(){
 	(function(d){
 			var url = location.href;
