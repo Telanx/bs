@@ -28,6 +28,7 @@ class UserController extends Controller {
 		$model_user = M('user_teacher');
 		$rs_user = $model_user->where("user='$user'")->select();
 		$rs_user[0]['status'] = $rs_user[0];//
+        dump($rs_user[0]);
 		$this->assign('user',$rs_user[0]);
 		$ttype = public_user_ttype();
 		$this->assign("ttype",$ttype);
