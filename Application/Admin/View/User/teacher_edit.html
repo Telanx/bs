@@ -92,7 +92,7 @@
 		$(function(){
 			var dep_list = {$dep.v};
 			var dep ='{$user.dep}';
-			//var s = {$user.status}; //这句话返回空值
+			var s = {$user.status}; //这句话返回空值
 			var ttype = {$user.type};
 			$('input[name=status]:eq('+(1-s)+')').attr('checked',true);
 			$('select[name=type]').val(ttype);

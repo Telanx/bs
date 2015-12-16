@@ -72,42 +72,8 @@ class BsController extends Controller {
 		
 	}
 
-    public function assign_kt(){
-        $ass_post = I('post.');
-        //dump($ass_post);
-        $model = M('bs_xt');
-        $stu_sid = I('post.sid');
-        $kt_bid = I('post.bid');
-        $model_kt = new \Think\Model();
-        $search_result=$model->where("sid='$stu_sid'")->count();
-        if($search_result[0]){
-            $msg=array(
-                'status'=>0,
-                'msg'=>'操作失败！'
-            );
-        }
-        else{
-            $msg=array(
-                'status'=>1,
-                'msg'=>'操作成功！'
-            );
-            //$model_kt->query("INSERT INTO bs_xt(bid,sid) VALUE(".$kt_bid.",".$stu_sid.");");
-            $insert_data=array(
-                'sid'=>I('post.sid'),
-                'bid'=>I('post.bid')
-            );
-            $model->add($insert_data);
-            //echo("插入操作的返回值");
-            //dump($insert_data);
-        }
-        //$this->ajaxReturn($msg);
-        $this->assign("user",$msg);
-        $this->display();
-
-    }
-	
-	//历史数据查询
-	public function history(){
+    //查历史数据
+    public function history(){
 		$this->login_check(1);
 		$user = public_user_id();
 		
@@ -117,6 +83,31 @@ class BsController extends Controller {
 		$this->assign("ttype",$ttype);
 		$this->display();
 	}
-	
+
+    //指定学生选题
+    public function assign_kt(){
+              $this->login_check(1);
+              $ktId = I('get.ktid');
+              $this->assign('ktId',$ktId);
+              $this->display();
+    }
+
+    //指定选题
+    public function xt(){
+        $this->login_check(2);
+        $ktId = I('post.ktid');
+        $sId = I('post.sid');
+        $rs = array(
+            'status'=>0,
+            'msg'=>'非法请求！'
+        );
+        //检查课题是否处于已审核并未被选状态
+        //检查学生是否处于未选课题状态，学号是否有效
+        if($ktId && $sId){
+            $model_bs = D('Bs');
+            $rs = $model_bs->xt($sId,$ktId);
+        }
+        $this->ajaxReturn($rs);
+    }
 	
 }

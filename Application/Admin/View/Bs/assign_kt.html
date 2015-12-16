@@ -1,70 +1,65 @@
 <html>
 <head>
-    <style type='text/css'>
-        .user-info{
-            font-family:'微软雅黑';
-            width:500px;
-            height:320px;
-        }
-        .info-left{
-            width:200px;
-            float:left;
-        }
-        .info-right{
-            width:300px;
-            float:left;
-        }
+    <meta charset='utf-8'/>
+        <link rel='stylesheet' href='__LIB__/pintuer/pintuer.css'/>
+            <style type='text/css'>
+    .s-input{
 
-        .button{
-            border:solid 1px rgb(0,153,255);
-            cursor:pointer;
-            width:100%;
-            height:34px;
-            line-height:34px;
-            text-align:center;
-            float:left;
-            margin-top:20px;
-            border-radius:4px;
-        }
-        .button:hover{
-            background:rgb(0,153,255);
-            border:solid 1px #fff;
-            color:#fff;
-        }
-        .msg{
+                text-align:center;
+                    }
+                        .msg{
+                                    text-align:center;
+                                            color:#f00;
+                                                    font-size:20px;
+                                                        }
+                                                            </style>
+                                                                <script src="__LIB__/pintuer/jquery.js"></script>
+                                                                    <script type='text/javascript'>
+    $(function(){   
+                    $('#s-search').click(function(e){
+                                    var sid = $('#s-input').val();
+                                                if(sid.trim()!=''){
+                                                                $.post("{:U('Admin/User/student_handler')}",{type:'view',user:sid},function(r){
+                                                                                        //r = JSON.parse(r);
+                                                                                        console.log(r);
+                                                                                                            $('tbody').children(':not(.th)').remove();
+                                                                                                                                if(r!=null){
+                                                                                                                                                        var i=0;
+                                                                                                                                                                                $('tbody').append("<tr><td><button class='button bg-main bindkt' data-id='"+r[i].user+"'>确认</button></td><td>"+r[i].user+"</td><td>"+(r[i].name||'-')+"</td><td>"+(r[i].status=='1'?'正常':'禁用')+"</td><td>"+(r[i].class||'-')+"</td></tr>");
+                                                                                                                                                                                                    }else{
+                                                                                                                                                                                                                            $('tbody').append('<tr><td>无任何搜索结果。</td></tr>');
+                                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                                                });
+                                                                            }
+                                                                                    });
+                            
+                            //绑定课题
+                            $('tbody').on('click','.bindkt',function(e){
+                                            var ktid = {$ktId};
+                                                            sid =$(e.target).attr('data-id');
+                                                                        $.post("{:U('Admin/Bs/xt')}",{ktid:ktid,sid:sid},function(r){
+                                                                                                $('.msg').html(r.msg);
+                                                                                                            });
+                                                                                });
+                                });
+    </script>
+    </head>
 
-            text-align:center;
-            color:#f00;
-        }
-    </style>
-    <script src="__LIB__/pintuer/jquery.js"></script>
 
-</head>
+    <body>
+    <div class="s-search">
+        <div style="s-input">                                                         
+                <input class="input" id='s-input' style="width:60%;float:left;border-radius:0px" placeholder="请输入学号搜索学生">                                                                                                                 
+                        <button type="submit" id='s-search' class="button bg-main" style="margin-left:10px">搜索</button>
+                    </div>
+                    <table class="table table-hover search-result-table">
+                            <tbody>
+                                <tr class="th"><th>操作</th><th>账号</th><th>姓名</th><th>状态</th><th>班级</th></tr>
+                                </tbody>
+                            </table>
+                            <p class='msg'></p>                                                                                                                                                                                                                                                </div>
 
-<body onload="Load('/index.php/Admin/Bs/view.html?dep=0&search=')">
+                        </body>
 
-<p>状态是：{$user.msg}</p>
-<a href="/index.php/Admin/Bs/view.html?dep=0&search=">点击跳转</a>
+                        </html>
 
-<div id="ShowDiv">
-    </div>
-
-</body>
-
-<script language="javascript">
-    var secs = 3; //倒计时的秒数
-    var URL ;
-    function Load(url){
-        URL = url;
-        for(var i=secs;i>=0;i--)
-        {
-            window.setTimeout('doUpdate(' + i + ')', (secs-i) * 1000);
-        }
-    }
-    function doUpdate(num)
-    {
-        document.getElementById('ShowDiv').innerHTML = '将在'+num+'秒后自动跳转到主页' ;
-        if(num == 0) { window.location = URL; }
-    }
-</script>
-</html>

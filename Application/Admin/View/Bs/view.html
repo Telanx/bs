@@ -99,7 +99,7 @@
                             $tag_content = '</td><td><a href=# data_id='+r[i].suser+'>'+(r[i].sname||'指定学生')+'</a></td></tr>';
                         }
                         else
-                            $tag_content = '</td><td><button class=\" assign_student\" kt_id='+r[i].id+' >指定学生 </button></td></tr>';
+                            $tag_content = '</td><td><button class=\" assign_student button bg-main\" kt_id='+r[i].id+' >指定学生 </button></td></tr>';
                         $('.search-result-table').append("<tr><td><a href=# class='viewkt' " +
                         "data_id="+r[i].id+">"+r[i].bname+'</a></td><td><a href=# class="viewls" ' +
                         'data_id='+r[i].tuser+'>'+r[i].tname+'</a></td><td>'+(r[i].dep||'-')+
@@ -325,9 +325,12 @@
                             sepline:true                //分割线
                         },{
                             id:'viewAll',
-                            text:'查看选择的课题名',
+                            text:'指该课题给学生',
+                            disable:(obj.sId?true:false),
                             fn:function(){              //回调函数，即点击该菜单后执行事件，注意如果有设置disable属性为true则不执行
-                                alert("您选择的课题名是:"+obj.ktName);
+                                var link_edit_html ="<iframe width=500 height=380 src=\'{:U('Admin/Bs/assign_kt')}?ktid="+obj.ktId+"\'></iframe>";
+                                popup.setTitle('指定学生').setCss({width:'520px',height:'400px'}).setBodyCss({height:'100%'}).setBody(link_edit_html).show();
+
                             }
                         },/*{
                          id:'viewStudent',
@@ -349,24 +352,9 @@
             });
 
             $('.search-result-table').on('click','.assign_student',function(e){
-                e.preventDefault();
-                var user = $(e.target);
-                //var kt_id = this.kt_id;
-
-                //console.trace(kt_id);
-                //alert(user.nodeName);
-                //var user = Document.getElementsByClassName("assign_student");
-                //var sid = user.parentNode;
-                //alert(sid);
-                var link_edit_html ="<html> <head><body><h3>请指定学生</h3><form action='assign_kt.html' method='post'>" +
-                                "<input hidden type=\'text\' id=\'bid\' name=\'bid\' value=\'"+e.target.getAttribute('kt_id')+"\'>"+
-                                "学号"+"<input type='text' id='sid' name='sid' value=''>"+
-                                "<button class='button bg-main'>确定</button>"
-                        +"</form>" +
-                        "</body></head></html>";
+                var bid = $(e.target).attr('kt_id');
+                var link_edit_html ="<iframe width=500 height=380 src=\'{:U('Admin/Bs/assign_kt')}?ktid="+bid+"\'></iframe>";
                 popup.setTitle('指定学生').setCss({marginTop:'50px',width:'530px',height:'400px'}).setBodyCss({height:'100%'}).setBody(link_edit_html).show();
-                $( "#log" ).html( "clicked: " + e.target.nodeName );
-                //alert(e.target.getAttribute('kt_id'));
             });
 
 

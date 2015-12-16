@@ -56,7 +56,7 @@
 				var p_c = res.page.current,p_t=res.page.total;
 				var r = res.r;
 				for(var i=0;i<rl;i++){
-					$('.search-result-table').append("<tr><td><button class='button border-dot btn-user-del'>删除</button><button class='button border-sub btn-user-edit'>修改</button></td><td><a href=# class='view'>"+r[i].user+'</a></td><td>'+(r[i].name||'-')+'</td><td>'+(r[i].status||'-')+'</td><td>'+(r[i].class||'-')+'</td></tr>');
+					$('.search-result-table').append("<tr><td><button class='button border-dot btn-user-del'>删除</button><button class='button border-sub btn-user-edit'>修改</button></td><td><a href=# class='view'>"+r[i].user+'</a></td><td>'+(r[i].name||'-')+'</td><td>'+(r[i].status=='1'?'正常':'禁用')+'</td><td>'+(r[i].class||'-')+'</td></tr>');
 				}
 				//显示或者隐藏分页
 				page({current:p_c,total:p_t},{page_prev:$('.btn-page-prev'),page_next:$('.btn-page-next'),page_num:$('.page-num')});
@@ -92,7 +92,7 @@
                         <tr><td>学号号：</td><td>'+r.user+'</td></tr>\
                         <tr><td>姓名：</td><td>'+(r.name||'-')+'</td></tr>\
                         <tr><td>班级：</td><td>'+(r.class||'-')+'</td></tr>\
-                        <tr><td>状态：</td><td>'+(r.status||'-')+'</td></tr>\
+                        <tr><td>状态：</td><td>'+(r.status=='1'?'正常':'禁用')+'</td></tr>\
                         <tr><td>手机：</td><td>'+(r.cellphone||'-')+'</td></tr>\
                             </table>\
                     </div>\

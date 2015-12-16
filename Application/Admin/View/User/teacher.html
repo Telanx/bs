@@ -54,7 +54,7 @@
 			var r = res.r;
 			
 			for(var i=0;i<rl;i++){
-					$('.search-result-table').append("<tr><td><button class='button border-dot btn-user-del'>删除</button><button class='button border-sub btn-user-edit'>修改</button></td><td><a href=# class='view'>"+r[i].user+'</a></td><td>'+(r[i].name||'-')+'</td><td>'+ttypeMapping[(r[i].type||'1')]+'</td><td>'+(r[i].status||'-')+'</td><td>'+(r[i].dep||'-')+'</td></tr>');
+					$('.search-result-table').append("<tr><td><button class='button border-dot btn-user-del'>删除</button><button class='button border-sub btn-user-edit'>修改</button></td><td><a href=# class='view'>"+r[i].user+'</a></td><td>'+(r[i].name||'-')+'</td><td>'+ttypeMapping[(r[i].type||'1')]+'</td><td>'+(r[i].status=='1'?'正常':'禁用')+'</td><td>'+(r[i].dep||'-')+'</td></tr>');
 			}
 			//显示或者隐藏分页
 			page({current:p_c,total:p_t},{page_prev:$('.btn-page-prev'),page_next:$('.btn-page-next'),page_num:$('.page-num')});
@@ -89,7 +89,7 @@
                         <tr><td>姓名：</td><td>'+(r.name||'-')+'</td></tr>\
                         <tr><td>所属部门：</td><td>'+(r.dep||'-')+'</td></tr>\
 												<tr><td>账号类型:</td><td>'+ttypeMapping[(r.type||'1')]+'</td></tr>\
-                        <tr><td>状态：</td><td>'+(r.status||'-')+'</td></tr>\
+                        <tr><td>状态：</td><td>'+(r.status=='1'?'正常':'禁用')+'</td></tr>\
                         <tr><td>带毕设次数：</td><td>'+(r.bsnum||'-')+'</td></tr>\
                             </table>\
                     </div>\
