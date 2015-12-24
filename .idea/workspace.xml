@@ -60,12 +60,15 @@
       <file leaf-file-name="viewkt.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Application/Home/View/Bs/viewkt.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6" vertical-offset="1824" max-vertical-offset="5550">
-              <caret line="149" column="41" selection-start-line="149" selection-start-column="41" selection-end-line="149" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.5625" vertical-offset="315" max-vertical-offset="5550">
+              <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#volist#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#0;n#tr#5;n#tbody#0;n#table#0;n#div#0;n#div#0;n#volist#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#5;n#tbody#0;n#table#0;n#div#0;n#div#0;n#volist#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#6;n#tbody#0;n#table#0;n#div#0;n#div#0;n#volist#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#6;n#tbody#0;n#table#0;n#div#0;n#div#0;n#volist#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#volist#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
@@ -763,12 +766,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/View/Bs/viewkt.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6" vertical-offset="1824" max-vertical-offset="5550">
-          <caret line="149" column="41" selection-start-line="149" selection-start-column="41" selection-end-line="149" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.5625" vertical-offset="315" max-vertical-offset="5550">
+          <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#volist#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#0;n#tr#5;n#tbody#0;n#table#0;n#div#0;n#div#0;n#volist#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#5;n#tbody#0;n#table#0;n#div#0;n#div#0;n#volist#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#6;n#tbody#0;n#table#0;n#div#0;n#div#0;n#volist#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#6;n#tbody#0;n#table#0;n#div#0;n#div#0;n#volist#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#volist#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
