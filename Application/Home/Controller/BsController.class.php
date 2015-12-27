@@ -17,7 +17,7 @@ class BsController extends Controller {
             //echo($m[0][$i]);
 			$push_data = $model_kt->query("select bs_kt.*,user_teacher.name as
 		tname,user_teacher.officephone,user_teacher.email
-		from bs_kt left join user_teacher on bs_kt.teacher=user_teacher.user where id=".$m[0][$i]);
+		from bs_kt left join user_teacher on bs_kt.teacher=user_teacher.user where bs_kt.id=".$m[0][$i]);
 			//dump($push_data[0]);
 			array_push($rs_kt,$push_data[0]);
 			//dump($push_data);
