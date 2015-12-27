@@ -8,7 +8,7 @@ class BsController extends Controller {
 		//$bid = I('get.bid');
 		$bid = I('get.bid','','string');
 		preg_match_all ("/\d/", $bid, $m);
-		//print_r($m[0]);
+		dump($m);
 		$model_kt = new \Think\Model();
 		//$sentence =
 		$rs_kt = array();
