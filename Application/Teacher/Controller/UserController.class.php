@@ -81,7 +81,7 @@ class UserController extends Controller {
 				'status'=>0,
 				'msg'=>'密码不正确！'
 			);
-			//dump($user);
+			dump($user);
 		}
 		else {
 			$msg = array(

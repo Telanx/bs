@@ -2,7 +2,7 @@
 namespace Teacher\Model;
 use Think\Model;
 class InfoModel extends Model{
-	protected $trueTableName = 'user_teacher';
+	protected $trueTableName = 'user_teacher_pwd';
 	
 	//更新用户资料以及密码
 	//检查账号密码
