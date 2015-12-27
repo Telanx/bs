@@ -7,7 +7,7 @@ class BsController extends Controller {
 	public function viewkt(){
 		//$bid = I('get.bid');
 		$bid = I('get.bid','','string');
-		preg_match_all ("/\d/", $bid, $m);
+		preg_match_all ("/\d+/", $bid, $m);
 		dump($m);
 		$model_kt = new \Think\Model();
 		//$sentence =
