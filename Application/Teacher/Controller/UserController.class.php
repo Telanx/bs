@@ -63,8 +63,8 @@ class UserController extends Controller {
 	public function edit_pwd(){
 		$this->login_check(2);
 		$user=public_user_id();
-		$pwd = I('post.pwd');
-		$pwd2 = I('post.pwd2');
+		$pwd = md5(I('post.pwd'));
+		$pwd2 = md5(I('post.pwd2'));
 		if($pwd&&$pwd2){
 			$model_user = D('Info');
 			if($model_user->checkpwd($user,$pwd)){
@@ -81,7 +81,7 @@ class UserController extends Controller {
 				'status'=>0,
 				'msg'=>'密码不正确！'
 			);
-			
+			//dump($user);
 		}
 		else {
 			$msg = array(
