@@ -15,7 +15,8 @@ In many situations,you have to install from the oracle website</br>
 when deploy,create the databse bs,then import bs.sql,the origin admin account is "telanx",password is "abcd"</br>
 
 Php:
-remember to install php,php-fpm,php-mysql
+remember to install php,php-fpm,php-mysql</br>
+change config file in /ThinkPHP/Conf/convention.php,the databse,database password and so on
 
 ###Windows
 I don't know how to deploy in IIS
