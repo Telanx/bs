@@ -37,6 +37,11 @@ class BsController extends Controller {
 	public function xt(){
 		$this->login_check(1);
 		$user = public_user_id();
+		//检查是否完善信息了
+		$userinfo = M('UserStudent')->where(array('user'=>session('telanx.user')))->find();
+		if (empty($userinfo['qq']) && empty($userinfo['eamil']) && empty($userinfo['cellphone'])) {
+			$this->error('请先完善个人信息', U('Student/User/edit'));
+		}
 		$model_user = M('user_student');
 		$rs_user = $model_user->field('name,pic')->where("user='$user'")->select();
 		$this->assign('user',$rs_user[0]);

@@ -85,7 +85,7 @@
 			//启用匹配规则
 			var reg_str='';
 			switch(user_type){
-				case '1':reg_str='^U\\d{9}$';break;//学号U2011xxxxx
+				case '1':reg_str='^(U|I)\\d{9}$';break;//学号U2011xxxxx
 				case '2':reg_str='^\\d{7}$';break;//7位教工号
 				case '3':reg_str='^\[a-z]{4,6}$';break;//全部小写字母4~6位
 				default:alert('非法类型');

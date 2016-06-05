@@ -38,7 +38,7 @@ class UserController extends Controller {
 	//为了好反馈方便不采用批量插入数据，而是采用逐条插入
 		$user_type = I('post.usertype');
 		switch($user_type){
-			case '1':$dep='class';$table = 'user_student';$tb2='user_student_pwd';$reg_str='/^U\d{9}$/';break;
+			case '1':$dep='class';$table = 'user_student';$tb2='user_student_pwd';$reg_str='/^(U|I)\d{9}$/';break;
 			case '2':$dep='dep';$table = 'user_teacher';$tb2='user_teacher_pwd';$reg_str='/^\d{7}$/';break;
 			case '3':$dep='';$table = 'user_admin';$tb2=$table;$reg_str='/^[a-z]{4,6}$/';break;
 		}
@@ -51,7 +51,7 @@ class UserController extends Controller {
 		);
 		
 		//进行规则验证
-		//var_dump(preg_match($reg_str,$account['user']));
+		var_dump(preg_match($reg_str,$account['user']));
 		if(preg_match($reg_str,$account['user'])){
 			$model_user = M($table);
 			
@@ -108,6 +108,109 @@ class UserController extends Controller {
 		
 		$this->ajaxReturn($str);
 	}
+	public function studenttoexcel()
+	{
+		vendor('PHPExcel.PHPExcel');
+		$key = empty($_SESSION['excel_student_key'])?'':$_SESSION['excel_student_key'];
+		$class = empty($_SESSION['excel_student_class'])?'0':$_SESSION['excel_student_class'];
+		if(preg_match('/^(U|I)\d*$/',$key) or $key==''){
+		//如果是学号号则按教工号查询
+			$match_type = 'user';
+		}else{
+		//否则按姓名查询	
+			$match_type = 'name';
+		}
+		$model_user = M('user_student');
+		if($class=='0'){
+			$rs_user = $model_user->where("$match_type like '%$key%'")->select();	//搜索全部
+		}
+		else {
+			$rs_user = $model_user->where("class='$class' and $match_type like '%$key%'")->select();			//搜索指定班级
+		}
+		$resultPHPExcel = new \PHPExcel();
+		$resultPHPExcel->getActiveSheet()->setCellValue('A1','账号'); 
+		$resultPHPExcel->getActiveSheet()->setCellValue('B1','姓名'); 
+		$resultPHPExcel->getActiveSheet()->setCellValue('C1','状态'); 
+		$resultPHPExcel->getActiveSheet()->setCellValue('D1','是否选题');
+		$resultPHPExcel->getActiveSheet()->setCellValue('E1','班级');
+		$i = 2;
+		foreach ($rs_user as $key => $value) {
+			$xt_count = M('bs_xt')->where(array('sid'=>$value['user']))->count();
+			$resultPHPExcel->getActiveSheet()->setCellValue('A'.$i,$value['user']); 
+			$resultPHPExcel->getActiveSheet()->setCellValue('B'.$i,$value['name']); 
+			$resultPHPExcel->getActiveSheet()->setCellValue('C'.$i,$value['status']=='1'?'正常':'禁用'); 
+			$resultPHPExcel->getActiveSheet()->setCellValue('D'.$i,$xt_count > 0?'已选':'未选');
+			$resultPHPExcel->getActiveSheet()->setCellValue('E'.$i,$value['class']);
+			$i++;
+		}
+  
+        $outputFileName = time().'.xls'; 
+		$xlsWriter = new \PHPExcel_Writer_Excel5($resultPHPExcel); 
+		header("Content-Type: application/force-download"); 
+		header("Content-Type: application/octet-stream"); 
+		header("Content-Type: application/download"); 
+		header('Content-Disposition:inline;filename="'.$outputFileName.'"'); 
+		header("Content-Transfer-Encoding: binary"); 
+		header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); 
+		header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT"); 
+		header("Cache-Control: must-revalidate, post-check=0, pre-check=0"); 
+		header("Pragma: no-cache"); 
+		$xlsWriter->save( "php://output" );
+	}
+
+	public function teachertoexcel()
+	{
+		vendor('PHPExcel.PHPExcel');
+		$key = empty($_SESSION['excel_student_key'])?'':$_SESSION['excel_student_key'];
+		$dep = empty($_SESSION['excel_student_dep'])?'0':$_SESSION['excel_student_dep'];
+		if(preg_match('/^\d+$/',$key) or $key==''){
+		//如果是教工号则按教工号查询
+			$match_type = 'user';
+		}else{
+		//否则按姓名查询	
+			$match_type = 'name';
+		}
+		$model_user=M('user_teacher');
+		if($dep=='0'){
+			$rs_user = $model_user->where("$match_type like '%$key%'")->select();
+		}
+		else{
+			$rs_user = $model_user->where("dep='$dep' and $match_type like '%$key%'")->select();
+		}
+		$resultPHPExcel = new \PHPExcel();
+		$resultPHPExcel->getActiveSheet()->setCellValue('A1','账号'); 
+		$resultPHPExcel->getActiveSheet()->setCellValue('B1','姓名'); 
+		$resultPHPExcel->getActiveSheet()->setCellValue('C1','类型'); 
+		$resultPHPExcel->getActiveSheet()->setCellValue('D1','状态');
+		$resultPHPExcel->getActiveSheet()->setCellValue('E1','是否申报');
+		$resultPHPExcel->getActiveSheet()->setCellValue('F1','所属研究所');
+		$i = 2;
+		$ttypeMapping = array('普通教师','系主任','院长');
+		foreach ($rs_user as $key => $value) {
+			$kt_count = M('bs_kt')->where(array('teacher'=>$value['user']))->count();
+			$resultPHPExcel->getActiveSheet()->setCellValue('A'.$i,$value['user']); 
+			$resultPHPExcel->getActiveSheet()->setCellValue('B'.$i,$value['name']); 
+			$resultPHPExcel->getActiveSheet()->setCellValue('C'.$i,$ttypeMapping[($value['type']||'1')]); 
+			$resultPHPExcel->getActiveSheet()->setCellValue('D'.$i,$value['status']=='1'?'正常':'禁用');
+			$resultPHPExcel->getActiveSheet()->setCellValue('E'.$i,$kt_count>0?'已申报':'未申报');
+			$resultPHPExcel->getActiveSheet()->setCellValue('F'.$i,$value['dep']);
+			$i++;
+		}
+  
+        $outputFileName = time().'.xls'; 
+		$xlsWriter = new \PHPExcel_Writer_Excel5($resultPHPExcel); 
+		header("Content-Type: application/force-download"); 
+		header("Content-Type: application/octet-stream"); 
+		header("Content-Type: application/download"); 
+		header('Content-Disposition:inline;filename="'.$outputFileName.'"'); 
+		header("Content-Transfer-Encoding: binary"); 
+		header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); 
+		header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT"); 
+		header("Cache-Control: must-revalidate, post-check=0, pre-check=0"); 
+		header("Pragma: no-cache"); 
+		$xlsWriter->save( "php://output" );
+	}
+
 	//学生
 	public function student(){
 		$this->login_check(1);
@@ -125,17 +228,18 @@ class UserController extends Controller {
 	$model_user = M('user_student');
 	if($type=='search'){
 			$key = I('post.key');
+			$_SESSION['excel_student_key'] = $key;
 			$class = I('post.class');
+			$_SESSION['excel_student_class'] = $class;
 			$current_p = (I('post.p')?I('post.p'):1);
 			$pagenum = 7;
-			if(preg_match('/^U\d*$/',$key) or $key==''){
+			if(preg_match('/^(U|I)\d*$/',$key) or $key==''){
 			//如果是学号号则按教工号查询
 				$match_type = 'user';
 			}else{
 			//否则按姓名查询	
 				$match_type = 'name';
 			}
-			
 			if($class=='0'){
 				$rs_user = $model_user->where("$match_type like '%$key%'")->limit($pagenum*($current_p-1),$pagenum)->select();	//搜索全部
 				$page_total = ceil($model_user->where("$match_type like '%$key%'")->count()/$pagenum);
@@ -144,7 +248,11 @@ class UserController extends Controller {
 				$rs_user = $model_user->where("class='$class' and $match_type like '%$key%'")->limit($pagenum*($current_p-1),$pagenum)->select();			//搜索指定班级
 				$page_total = ceil($model_user->where("class='$class' and $match_type like '%$key%'")->count()/$pagenum);
 			}
-			
+			if (is_array($rs_user)) {
+				foreach ($rs_user as $key => &$value) {
+					$value['xt_count'] = M('bs_xt')->where(array('sid'=>$value['user']))->count();
+				}
+			}
 			$page = array(
 				'total'=>$page_total,
 				'current'=>$current_p
@@ -279,7 +387,9 @@ class UserController extends Controller {
 	if($type=='search'){
 			$this->login_check(2);
 			$key = I('post.key');
+			$_SESSION['excel_teacher_key'] = $key;
 			$dep = I('post.dep');
+			$_SESSION['excel_teacher_dep'] = $dep;
 			$current_p = (I('post.p')?I('post.p'):1);
 			$pagenum = 7;
 			if(preg_match('/^\d+$/',$key) or $key==''){
@@ -299,6 +409,11 @@ class UserController extends Controller {
 					$rs_user = $model_user->where("dep='$dep' and $match_type like '%$key%'")->limit($pagenum*($current_p-1),$pagenum)->select();
 					$page_total = ceil($model_user->where("dep='$dep' and $match_type like '%$key%'")->count()/$pagenum);
 				
+			}
+			if (is_array($rs_user)) {
+				foreach ($rs_user as $key => &$value) {
+					$value['kt_count'] = M('bs_kt')->where(array('teacher'=>$value['user']))->count();
+				}
 			}
 			$page = array(
 				'total'=>$page_total,

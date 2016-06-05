@@ -10,7 +10,7 @@ class BsModel extends Model{
 		public function queryStudentNum($t){
 				$num = 0;
 				if($t==1){	//查询已选课题的学生人数
-					$sql = "select count(*) from bs_xt";
+					$sql = "select count(*) from bs_xt group by sid";
 				}else{			//查询所有
 					$sql = "select count(*) from user_student";
 				}
@@ -27,9 +27,9 @@ class BsModel extends Model{
 		
 		public function queryKtNum($t){
 				if($t==1){
-					$sql = "select count(*) from bs_kt where status=2";
+					$sql = "select count(*) from bs_kt where status=3";
 				}else{
-					$sql = "select count(*) from bs_kt where status=1";
+					$sql = "select count(*) from bs_kt";
 				}
 				$model = new \Think\Model();
 				$rs = $model->query($sql);

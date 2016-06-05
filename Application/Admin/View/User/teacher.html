@@ -54,7 +54,7 @@
 			var r = res.r;
 			
 			for(var i=0;i<rl;i++){
-					$('.search-result-table').append("<tr><td><button class='button border-dot btn-user-del'>删除</button><button class='button border-sub btn-user-edit'>修改</button></td><td><a href=# class='view'>"+r[i].user+'</a></td><td>'+(r[i].name||'-')+'</td><td>'+ttypeMapping[(r[i].type||'1')]+'</td><td>'+(r[i].status=='1'?'正常':'禁用')+'</td><td>'+(r[i].dep||'-')+'</td></tr>');
+					$('.search-result-table').append("<tr><td><button class='button border-dot btn-user-del'>删除</button><button class='button border-sub btn-user-edit'>修改</button></td><td><a href=# class='view'>"+r[i].user+'</a></td><td>'+(r[i].name||'-')+'</td><td>'+ttypeMapping[(r[i].type||'1')]+'</td><td>'+(r[i].status=='1'?'正常':'禁用')+'</td><td>'+(r[i].kt_count>0?'已申报':'未申报')+'</td><td>'+(r[i].dep||'-')+'</td></tr>');
 			}
 			//显示或者隐藏分页
 			page({current:p_c,total:p_t},{page_prev:$('.btn-page-prev'),page_next:$('.btn-page-next'),page_num:$('.page-num')});
@@ -225,9 +225,9 @@
 						</div>
 						<!--结果区域--->
 						<div class='right-result'>
-							<div class='right-result-head'><h4>全部结果:</h4>(Tips:点击账号即可查看用户基本)</div>
+							<div class='right-result-head'><h4>全部结果:<a href="{:U('Admin/User/teachertoexcel')}" class="button bg-main" style="margin-left:10px">导出excel</a></h4>(Tips:点击账号即可查看用户基本)</div>
 							<div class='right-result-body'>
-								<table class="table table-hover search-result-table"><tr class='th'><th>操作</th><th>账号</th><th>姓名</th><th>类型</th><th>状态</th><th>所属研究所</th></tr>
+								<table class="table table-hover search-result-table"><tr class='th'><th>操作</th><th>账号</th><th>姓名</th><th>类型</th><th>状态</th><th>是否申报</th><th>所属研究所</th></tr>
 								</table>
                                 <!---start-->
                 

@@ -56,7 +56,7 @@
 				var p_c = res.page.current,p_t=res.page.total;
 				var r = res.r;
 				for(var i=0;i<rl;i++){
-					$('.search-result-table').append("<tr><td><button class='button border-dot btn-user-del'>删除</button><button class='button border-sub btn-user-edit'>修改</button></td><td><a href=# class='view'>"+r[i].user+'</a></td><td>'+(r[i].name||'-')+'</td><td>'+(r[i].status=='1'?'正常':'禁用')+'</td><td>'+(r[i].class||'-')+'</td></tr>');
+					$('.search-result-table').append("<tr><td><button class='button border-dot btn-user-del'>删除</button><button class='button border-sub btn-user-edit'>修改</button></td><td><a href=# class='view'>"+r[i].user+'</a></td><td>'+(r[i].name||'-')+'</td><td>'+(r[i].status=='1'?'正常':'禁用')+'</td><td>'+(r[i].xt_count > 0?'已选':'未选')+'</td><td>'+(r[i].class||'-')+'</td></tr>');
 				}
 				//显示或者隐藏分页
 				page({current:p_c,total:p_t},{page_prev:$('.btn-page-prev'),page_next:$('.btn-page-next'),page_num:$('.page-num')});
@@ -89,7 +89,7 @@
                         <img width="160px" height="195px"\ src="'+(r.pic||'https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=801265354,741403095&fm=58')+'"></div>\
                     <div class="info_right">\
                         <table style="line-height:40px">\
-                        <tr><td>学号号：</td><td>'+r.user+'</td></tr>\
+                        <tr><td>学号：</td><td>'+r.user+'</td></tr>\
                         <tr><td>姓名：</td><td>'+(r.name||'-')+'</td></tr>\
                         <tr><td>班级：</td><td>'+(r.class||'-')+'</td></tr>\
                         <tr><td>状态：</td><td>'+(r.status=='1'?'正常':'禁用')+'</td></tr>\
@@ -227,9 +227,9 @@
 						</div>
 						<!--结果区域--->
 						<div class='right-result'>
-							<div class='right-result-head'><h4>全部结果:</h4></div>
+							<div class='right-result-head'><h4>全部结果:<a href="{:U('Admin/User/studenttoexcel')}" class="button bg-main" style="margin-left:10px">导出excel</a></h4></div>
 							<div class='right-result-body'>
-								<table class="table table-hover search-result-table"><tr class='th'><th>操作</th><th>账号</th><th>姓名</th><th>状态</th><th>班级</th></tr>
+								<table class="table table-hover search-result-table"><tr class='th'><th>操作</th><th>账号</th><th>姓名</th><th>状态</th><th>是否选题</th><th>班级</th></tr>
 								</table>
                                 <!---start-->
                 

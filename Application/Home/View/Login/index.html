@@ -74,7 +74,7 @@
 	})
 	//更换验证码
 	$('.verify').click(function(){
-		$(this).find('img').attr('src','/bs/index.php/Home/Login/verifycode.html/');
+		$(this).find('img').attr('src','/index.php/Home/Login/verifycode?='+Math.random());
 	})
 	
 	});
@@ -176,8 +176,8 @@
 											<input type='text' name='verifycode' class='input' data-validate="required:必填">
 										</div>
 										<div class='x4'>
-											<a href=# class='verify'>
-												<img height=33px src={:U('Home/Login/verifycode')}/>
+											<a href='javascript:void(0);' class='verify'>
+												<img height=33px src={:U('Home/Login/verifycode')}>
 											</a>
 										</div>
 									</div>

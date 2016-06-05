@@ -72,6 +72,16 @@ class BsController extends Controller {
 		
 	}
 
+	public function xt_cancel($sid = '',$bid = '')
+	{
+		$result = M('bs_xt')->where(array('bid'=>$bid,'sid'=>$sid))->delete();
+		if ($result) {
+			$this->success('取消成功');
+		}else{
+			$this->error('取消失败');
+		}
+	}
+
     //查历史数据
     public function history(){
 		$this->login_check(1);

@@ -36,16 +36,19 @@ class BsController extends Controller {
 	
 	//查看任务书
 	public function viewrw(){
-		$bid = I('get.bid');
-		$sid = I('get.sid');
+		$bid = I('get.bid','','string');
+		preg_match_all ("/\d+/", $bid, $m);
+		//$sid = I('get.sid');
 		//加入权限判定则通过登录用户
-		$model_user = M('user_student');
-		$rs_user = $model_user->where("user='$sid'")->select();
-		$this->assign('user',$rs_user[0]);
 		$model_kt = new \Think\Model();
-		$sql = "select bs_kt.*,user_teacher.name as tname from bs_kt left join user_teacher on bs_kt.teacher=user_teacher.user where bs_kt.id=$bid";
-		$rs_kt = $model_kt->query($sql);
-		$this->assign('kt',$rs_kt[0]);
+		$rs_kt = array();
+
+		for($i=0;$i<count($m[0]);$i++){
+		$push_data = $model_kt->query("SELECT user_teacher.name as tname,bs_kt.*,user_student.name as sname, user_student.class FROM user_student,bs_kt,bs_xt,user_teacher WHERE bs_xt.sid = user_student.user AND bs_xt.bid = bs_kt.id AND bs_kt.teacher = user_teacher.user AND bs_kt.id=".$m[0][$i]);
+		array_push($rs_kt,$push_data[0]);
+	}
+	//print_r($rs_kt);
+		$this->assign('kt',$rs_kt);
 		$this->display();
 	}
 	
