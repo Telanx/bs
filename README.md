@@ -19,7 +19,7 @@ remember to install php,php-fpm,php-mysql</br>
 change config file in /ThinkPHP/Conf/convention.php,the databse,database password and so on
 
 ###Windows
-I don't know how to deploy in IIS
+I don't know how to deploy in IIS,but WAMP is ok
 
 ##Left Problems
 ###管理员
