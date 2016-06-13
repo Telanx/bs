@@ -2,7 +2,7 @@
 <html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 </head>
 
@@ -11,12 +11,51 @@
 
 </html>
 <html>
+<style type="text/css">@media print
+        {
+        .page {page-break-after:always;}
+        }
+        .style1
+        {
+            height: 43px;
+        }
+        .style3
+        {
+            height: 136px;
+        }
+        .style4
+        {
+            height: 46px;
+        }
+        .style5
+        {
+            height: 80px;
+        }
+        .style6
+        {
+            height: 80px;
+        }
+        .style8
+        {
+            height: 36px;
+        }
+        .style9
+        {
+            height: 44px;
+        }
+        .tip
+        {
+            margin: 10px 0 10px 0;
+            padding: 12px;
+            color: #555;
+            border: solid 1px #d3c403;
+            background-color: #fdf166;
+        }
+    </style>
+
 <head>
 <meta http-equiv="Content-Language" content="zh-cn">
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">     
-<script language="javascript" type="text/javascript">     
+<script language="javascript" type="text/javascript">
         function printdiv(printpage)
         {
             var headstr = "<html><head><title>任务书</title></head><body>";
@@ -24,17 +63,19 @@
             var newstr = document.all.item(printpage).innerHTML;
             var oldstr = document.body.innerHTML;
             document.body.innerHTML = headstr+newstr+footstr;
-            window.print(); 
+            window.print();
             document.body.innerHTML = oldstr;
         }
-</script>  
+    </script>
 
-<body>
+<body style="line-height: 100%">
 <a href="javascript:printdiv('div_document');">打印</a>
+
 <div id="div_document" style="text-align:center;width:280mm;height:auto">	
 
 	<!--第一页-->
-<div style="height:380mm;background:#FFFFFF;text-align:center;padding-top:10mm;"> 
+<volist name="kt" id="vo">
+<div style="background:#FFFFFF;text-align:center;" class="page"> 
 <p>
 <span style="font-size: 24.0pt; font-family: 华文行楷; letter-spacing: 3.3pt; text-fit: 189.0pt;line-height:2em">
 华中科技大学</span><br />
@@ -42,20 +83,20 @@
 
 <br />
 <p>
-<span style="font-size: 12.0pt; font-family: 仿宋_GB2312"><u>计算机科学与技术</u>学院（系）
+<span style="font-size: 12.0pt; font-family: 华文仿宋"><u>计算机科学与技术</u>学院（系）
 <u>计算机科学与技术</u>专业</p>
 
 <br/>
 <p>
 <!--题目-->
-<span style="font-size: 16.0pt; font-family: 仿宋_GB2312; letter-spacing: 13.5pt; text-fit: 63.0pt">
+<span style="font-size: 16.0pt; font-family: 华文仿宋; letter-spacing: 13.5pt; text-fit: 63.0pt">
 题目</span><u><span lang="EN-US" style="font-size: 18.0pt"><u>
-<span style="font-size: 16.0pt; font-family: 仿宋_GB2312;line-height:1.5em;">{$kt.name}</span></u></span></u></p>
+<span style="font-size: 16.0pt; font-family: 华文仿宋;line-height:1.5em;">{$vo['name']}</span></u></span></u></p>
 <!--日期-->
-<p><span style="font-size: 12.0pt; font-family: 仿宋_GB2312">
+<p><span style="font-size: 12.0pt; font-family: 华文仿宋">
 （任务起止日期：
-	2013&nbsp;年&nbsp;12月&nbsp;25日～
-2014&nbsp;年&nbsp;6月&nbsp;8日）
+	2015&nbsp;年&nbsp;12月&nbsp;25日～
+2016&nbsp;年&nbsp;6月&nbsp;8日）
 	
 </span></p>
 
@@ -63,32 +104,32 @@
 
 <div style="text-align:left;margin-left:15%;">
 	<p>
-		<span style="font-size: 12.0pt;font-family: 仿宋_GB2312; letter-spacing: 5.35pt; text-fit: 95.95pt">
-		学生姓名<u>&nbsp;&nbsp;&nbsp;&nbsp;{$user.name}&nbsp;&nbsp;&nbsp;&nbsp;</u></span>
-		<span style="font-size: 12.0pt;font-family: 仿宋_GB2312">班号
-			<u>&nbsp;&nbsp;&nbsp;&nbsp;计算机科学与技术{$user.class}&nbsp;&nbsp;&nbsp;&nbsp;</u>
+		<span style="font-size: 12.0pt;font-family: 华文仿宋; letter-spacing: 5.35pt; text-fit: 95.95pt">
+		学生姓名<u>&nbsp;&nbsp;&nbsp;&nbsp;{$vo['sname']}&nbsp;&nbsp;&nbsp;&nbsp;</u></span>
+		<span style="font-size: 12.0pt;font-family: 华文仿宋">班号
+			<u>&nbsp;&nbsp;&nbsp;&nbsp;计算机科学与技术{$vo['class']}&nbsp;&nbsp;&nbsp;&nbsp;</u>
 		</span>
 	</p>
 
 	<p>
-		<span style="font-size: 12.0pt;font-family: 仿宋_GB2312; letter-spacing: 5.35pt; text-fit: 95.95pt">
-		指导教师<u>&nbsp;&nbsp;&nbsp;&nbsp;{$kt.tname}&nbsp;&nbsp;&nbsp;&nbsp;</u></span>
+		<span style="font-size: 12.0pt;font-family: 华文仿宋; letter-spacing: 5.35pt; text-fit: 95.95pt">
+		指导教师<u>&nbsp;&nbsp;&nbsp;&nbsp;{$vo['tname']}&nbsp;&nbsp;&nbsp;&nbsp;</u></span>
 	</p>
 
 	<p>
-		<span style="font-size: 12.0pt;font-family: 仿宋_GB2312; letter-spacing: 2.0pt; text-fit: 95.95pt">教研室主任</span>
+		<span style="font-size: 12.0pt;font-family: 华文仿宋; letter-spacing: 2.0pt; text-fit: 95.95pt">教研室主任</span>
 		<u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
-		<span style="font-size: 12.0pt; font-family: 仿宋_GB2312;">
-		 2014&nbsp;年&nbsp;1月&nbsp;3日
+		<span style="font-size: 12.0pt; font-family: 华文仿宋;">
+		 2016&nbsp;年&nbsp;1月&nbsp;3日
 		
 			审查</span>
 	</p>
 	
 	<p>
-		<span style="font-size: 12.0pt;font-family: 仿宋_GB2312; letter-spacing: 2.0pt; text-fit: 95.95pt">院（系）主任</span>
+		<span style="font-size: 12.0pt;font-family: 华文仿宋; letter-spacing: 2.0pt; text-fit: 95.95pt">院（系）主任</span>
 		<u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
-		<span style="font-size: 12.0pt; font-family: 仿宋_GB2312;">
-		 2014&nbsp;年&nbsp;1月&nbsp;6日
+		<span style="font-size: 12.0pt; font-family: 华文仿宋;">
+		 2016&nbsp;年&nbsp;1月&nbsp;6日
 			
 			
 			批准</span>
@@ -99,29 +140,29 @@
 	<tr>
 		<td valign="top" style="padding: 0 5.4pt; border-left: 1.5pt double windowtext; border-right: 1.5pt double windowtext; border-top: 1.5pt double windowtext; border-bottom: 1.0pt solid windowtext;" align="left" >
 			<p style="text-align:center">
-				<span style="font-size: 12.0pt;font-family: 仿宋_GB2312"><u>课题内容</u>：</span></p>		
-			<p><span style="font-size: 12.0pt;font-family: 仿宋_GB2312">{$kt.content}</span>
+				<span style="font-size: 12.0pt;font-family: 华文仿宋"><u>课题内容</u>：</span></p>		
+			<p><span style="font-size: 12.0pt;font-family: 华文仿宋">{$vo['content']}</span>
 			<br/></p>
 		</td>
 	</tr>
 	<tr>
 		<td valign="top" style="padding: 0cm 5.4pt; border-left: 1.5pt double windowtext; border-right: 1.5pt double windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext;">
 			<p style="text-align:center">
-			<span style="font-size: 12.0pt;font-family: 仿宋_GB2312"><u>课题任务要求</u>：</span></p>		
-			<p><span style="font-family: 仿宋_GB2312">{$kt.require}</span><br/></p>
+			<span style="font-size: 12.0pt;font-family: 华文仿宋"><u>课题任务要求</u>：</span></p>		
+			<p><span style="font-family: 华文仿宋">{$vo['require']}</span><br/></p>
 		</td>
 	</tr>
 	<tr>
 		<td valign="top" style="padding: 0cm 5.4pt; border-left: 1.5pt double windowtext; border-right: 1.5pt double windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext;" >
 			<p style="text-align:center">
-			<span style="font-size: 12.0pt;font-family: 仿宋_GB2312"><u>主要参考文献</u>：</span></p>
-			<p><span style="font-size: 12.0pt;font-family: 仿宋_GB2312">{$kt.reference}</span>
+			<span style="font-size: 12.0pt;font-family: 华文仿宋"><u>主要参考文献</u>：</span></p>
+			<p><span style="font-size: 12.0pt;font-family: 华文仿宋">{$vo['reference']}</span>
 			<br/></p>
 		</td>
 	</tr>
 	<tr style="height: 30pt">
-		<td valign="middle" style="text-align:left;border-left: 1.5pt double windowtext; border-right: 1.5pt double windowtext; border-top: medium none; border-bottom: 1.5pt double windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
-		<u><span style="font-size: 12.0pt; font-family: 仿宋_GB2312">同组设计者:</span></u></td>
+		<td valign="middle" style="text-align:left;border-left: 1.5pt double windowtext; border-right: 1.5pt double windowtext; border-top: medium none; border-bottom: 1.5pt double windowtext; padding-left: 5.4pt; padding-right: 5.4pt;">
+		<u><span style="font-size: 12.0pt; font-family: 华文仿宋">同组设计者:</span></u></td>
 	</tr>
 </table>	
 
@@ -130,12 +171,12 @@
 	<span style="text-indent: 17pt;display:block;">2.此任务书最迟必须在<u>毕业设计开始前一周</u>下达给学生。</span></p>
 </div>
 </div> <!-- end of div_page1-->
-      		
-<!--第二页-->
+</volist>   		
+<!--第二页
 <div style="height:380mm;padding-top:8mm">
 	<img src="http://202.114.18.188/teacher/page3.jpg" style="width:100%;height:auto;" />
 </div>   
-
+-->
 	
 </div>
 </body>

@@ -36,11 +36,11 @@
         }
         .style5
         {
-            height: 71px;
+            height: 80px;
         }
         .style6
         {
-            height: 76px;
+            height: 80px;
         }
         .style8
         {
@@ -65,14 +65,14 @@
 
 <body style="line-height: 100%">
 
-<a href="javascript:printdiv(&#39;div_document&#39;);">打印</a> <a href="javascript:window.close()">关闭</a>
+<a href="javascript:printdiv('div_document');">打印</a> <a href="javascript:window.close()">关闭</a>
 <a href="renwu.asp?id=8469" target="_blank">任务书</a> <a href="华中科技大学毕业设计(论文)任务书.doc"
                                                        target="_blank">空任务书</a>
 
 <div id="div_document" style="height:auto">
     <volist name="kt" id="vo">
         <!--第一页-->
-        <div style="height:1086px;background:#FFFFFF;text-align:center" class="page">
+        <div style="/*height:1086px*/;background:#FFFFFF;text-align:center" class="page">
             <div align="center">
                 <p style="line-height:2em">
                     <b><font size="5" face="宋体">华中科技大学</font></b></p>
@@ -136,18 +136,18 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2" width="110" style="padding-left: 1px; padding-right: 1px; padding-top: 20px;
-                        padding-bottom: 20px" class="style6">
+                        <td colspan="2" width="110" style="padding-left: 1px; padding-right: 1px; padding-top: 30px;
+                        padding-bottom: 30px" class="style6">
                             <font face="宋体" size="3">主要内容</font>
                         </td>
-                        <td colspan="6" align="left" style="padding-top: 20px; padding-bottom: 20px" class="style6">
+                        <td colspan="6" align="left" style="padding-top: 30px; padding-bottom: 30px" class="style6">
                             <font face="宋体" size="3">
                                 {$vo['content']}</font>
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2" width="110" style="padding-left: 1px; padding-right: 1px; padding-top: 10px;
-                        padding-bottom: 10px" class="style5">
+                        <td colspan="2" width="110" style="padding-left: 1px; padding-right: 1px; padding-top: 30px;
+                        padding-bottom: 30px" class="style5">
                             <font face="宋体" size="3">预期目标</font>
                         </td>
                         <td colspan="6" align="left" style="padding-top: 10px; padding-bottom: 10px" class="style5">
@@ -172,7 +172,7 @@
                             <font face="宋体" size="3">经&nbsp;费</font>
                         </td>
                         <td colspan="6" align="left" style="padding-top: 0; padding-bottom: 0" class="style4">
-                            <font face="宋体" size="3">{$vo['found']}万元</font>
+                            <font face="宋体" size="3">{$vo['snum']}万元</font>
                         </td>
                     </tr>
                     <tr height="75pt">

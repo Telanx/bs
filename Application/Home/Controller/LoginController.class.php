@@ -43,6 +43,19 @@ class LoginController extends Controller {
 			}
 			//管理员则记录登录时间
 			if(I('post.type')=='3')$ModelLogin->admin_login_time(I('post.user'));
+			//检查是否第一次登录
+			if (I('post.type')=='2') {
+				$userinfo = M('UserTeacher')->where(array('user'=>I('post.user')))->find();
+				if (empty($userinfo['qq']) && empty($userinfo['cellphone']) && empty($userinfo['officephone'])) {
+					$this->error('登录成功', U('Teacher/User/edit'));
+				}
+			}
+			if (I('post.type')=='1') {
+				$userinfo = M('UserStudent')->where(array('user'=>I('post.user')))->find();
+				if (empty($userinfo['qq']) && empty($userinfo['eamil']) && empty($userinfo['cellphone'])) {
+					$this->error('登录成功', U('Student/User/edit'));
+				}
+			}
 			$this->success('登录成功', U($m.'/Index/index'));	
 		}
 	}

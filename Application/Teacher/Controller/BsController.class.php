@@ -110,22 +110,33 @@ class BsController extends Controller {
 	public function add(){
 		$this->login_check(1);
 		$user = public_user_id();
+		//检查是否完善信息了
+		$userinfo = M('UserTeacher')->where(array('user'=>session('telanx.user')))->find();
+		if (empty($userinfo['qq']) && empty($userinfo['cellphone']) && empty($userinfo['officephone'])) {
+			$this->error('请先完善个人信息', U('Teacher/User/edit'));
+		}
 		$model_user = M('user_teacher');
 		$rs_user = $model_user->field('pic,name')->where("user='$user'")->select();
 		$this->assign('user',$rs_user[0]);
 		$model_kt = D('kt');
 		$post = I('post.');
 		if(count($post)){
-		$post['teacher']=$user;
-		$verify = $model_kt->kt_add($post);
-		if(!$verify['msg']){
-			$msg = $verify['msg'];
-		}else{
-		$post['status']=0;
-		if($model_kt ->add($post))$msg = '课题录入成功！';
-		else $msg = '课题录入失败！请重试！';	
-		}
-		$this->assign('msg',$msg);
+			// 检查数量
+			$count = $model_kt->where(array('teacher'=>$user))->count();
+			if ($count >= 5) {
+				$this->assign('msg','最多只能添加5个课题');
+			}else{
+				$post['teacher']=$user;
+				$verify = $model_kt->kt_add($post);
+				if(!$verify['msg']){
+					$msg = $verify['msg'];
+				}else{
+				$post['status']=0;
+				if($model_kt ->add($post))$msg = '课题录入成功！';
+				else $msg = '课题录入失败！请重试！';	
+				}
+				$this->assign('msg',$msg);
+			}
 		}
 		$ttype = public_user_ttype();
 		$this->assign("ttype",$ttype);

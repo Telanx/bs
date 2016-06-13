@@ -27,7 +27,8 @@ class UserController extends Controller {
 		$user=public_user_id();
 		$model_user = M('user_teacher');
 		$rs_user = $model_user->where("user='$user'")->select();
-		$rs_user[0]['status'] = ord($rs_user[0]['status']);//转化mysql的bit(1)
+		$rs_user[0]['status'] = $rs_user[0]['status']['status'];//
+        //dump($rs_user[0]);
 		$this->assign('user',$rs_user[0]);
 		$ttype = public_user_ttype();
 		$this->assign("ttype",$ttype);
@@ -52,7 +53,7 @@ class UserController extends Controller {
 		
 		$this->assign('r',$r);
 		$rs_user = $model_user->where("user='$user'")->select();
-        $rs_user[0]['status'] = ord($rs_user[0]['status']);//转化mysql的bit(1)
+        $rs_user[0]['status'] = $rs_user[0]['status']['status'];//ord($rs_user[0]['status']);//转化mysql的bit(1)
 		$this->assign('user',$rs_user[0]);
 		$ttype = public_user_ttype();
 		$this->assign("ttype",$ttype);
@@ -62,8 +63,8 @@ class UserController extends Controller {
 	public function edit_pwd(){
 		$this->login_check(2);
 		$user=public_user_id();
-		$pwd = I('post.pwd');
-		$pwd2 = I('post.pwd2');
+		$pwd = md5(I('post.pwd'));
+		$pwd2 = md5(I('post.pwd2'));
 		if($pwd&&$pwd2){
 			$model_user = D('Info');
 			if($model_user->checkpwd($user,$pwd)){
@@ -80,7 +81,7 @@ class UserController extends Controller {
 				'status'=>0,
 				'msg'=>'密码不正确！'
 			);
-			
+			//dump($user);
 		}
 		else {
 			$msg = array(

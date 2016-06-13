@@ -46,7 +46,7 @@ class XtModel extends Model{
 		*/
 	public function search($para){
 		
-		$k = "bs_kt.name like '%".$para['k']."%'";
+		$k = "(bs_kt.name like '%".$para['k']."%' or user_teacher.name like '%".$para['k']."%')";
 		//根据实验室分类
 		
 		if($para['d']=='0'){
@@ -68,6 +68,8 @@ class XtModel extends Model{
 		$Model =  new \Think\Model();
 		$tp = $Model->query($sql1)[0]['count(*)'];
 		$rs_kt = $Model->query($sql2);
+
+		shuffle($rs_kt);
 		
 		$rs = array(
 			'page'=>array(

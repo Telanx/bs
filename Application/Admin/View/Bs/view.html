@@ -96,10 +96,10 @@
                     for(var i=0;i<rl;i++){
                         if(r[i].sname)
                         {
-                            $tag_content = '</td><td><a href=# data_id='+r[i].suser+'>'+(r[i].sname||'指定学生')+'</a></td></tr>';
+                            $tag_content = '</td><td><a href=# data_id='+r[i].suser+'>'+(r[i].sname||'指定学生')+'</a></td><td><a href="/index.php/Admin/Bs/xt_cancel?sid='+r[i].suser+'&bid='+r[i].id+'" class=" assign_student button bg-main">取消选课</a></td></tr>';
                         }
                         else
-                            $tag_content = '</td><td><button class=\" assign_student\" kt_id='+r[i].id+' >指定学生 </button></td></tr>';
+                            $tag_content = '</td><td><button class=\" assign_student button bg-main\" kt_id='+r[i].id+' >指定学生 </button></td><td><a href="/index.php/Admin/Bs/xt_cancel?sid='+r[i].suser+'&bid='+r[i].id+'" class=" assign_student button bg-main">取消选课</a></td></tr>';
                         $('.search-result-table').append("<tr><td><a href=# class='viewkt' " +
                         "data_id="+r[i].id+">"+r[i].bname+'</a></td><td><a href=# class="viewls" ' +
                         'data_id='+r[i].tuser+'>'+r[i].tname+'</a></td><td>'+(r[i].dep||'-')+
@@ -317,17 +317,28 @@
                     menus:[
                         {
                             id:'printAll',              //id要唯一
-                            text:'查看'+obj.ktName+'的任务书',        //菜单文字
+                            text:'查看'+obj.ktName+'的报审表',        //菜单文字
                             fn:function(){
                                 window.open("{:U('/Home/Bs/viewkt')}?bid="+obj.ktId);
                             }
                         },{
                             sepline:true                //分割线
                         },{
+                            id:'print2All',              //id要唯一
+                            text:'查看'+obj.ktName+'的任务书',        //菜单文字
+                            fn:function(){
+                                window.open("{:U('/Home/Bs/viewrw')}?bid="+obj.ktId);
+                            }
+                        },{
+                            sepline:true                //分割线
+                        },{
                             id:'viewAll',
-                            text:'查看选择的课题名',
+                            text:'指该课题给学生',
+                            disable:(obj.sId?true:false),
                             fn:function(){              //回调函数，即点击该菜单后执行事件，注意如果有设置disable属性为true则不执行
-                                alert("您选择的课题名是:"+obj.ktName);
+                                var link_edit_html ="<iframe width=500 height=380 src=\'{:U('Admin/Bs/assign_kt')}?ktid="+obj.ktId+"\'></iframe>";
+                                popup.setTitle('指定学生').setCss({width:'520px',height:'400px'}).setBodyCss({height:'100%'}).setBody(link_edit_html).show();
+
                             }
                         },/*{
                          id:'viewStudent',
@@ -349,24 +360,9 @@
             });
 
             $('.search-result-table').on('click','.assign_student',function(e){
-                e.preventDefault();
-                var user = $(e.target);
-                //var kt_id = this.kt_id;
-
-                //console.trace(kt_id);
-                //alert(user.nodeName);
-                //var user = Document.getElementsByClassName("assign_student");
-                //var sid = user.parentNode;
-                //alert(sid);
-                var link_edit_html ="<html> <head><body><h3>请指定学生</h3><form action='assign_kt.html' method='post'>" +
-                                "<input hidden type=\'text\' id=\'bid\' name=\'bid\' value=\'"+e.target.getAttribute('kt_id')+"\'>"+
-                                "学号"+"<input type='text' id='sid' name='sid' value=''>"+
-                                "<button class='button bg-main'>确定</button>"
-                        +"</form>" +
-                        "</body></head></html>";
+                var bid = $(e.target).attr('kt_id');
+                var link_edit_html ="<iframe width=500 height=380 src=\'{:U('Admin/Bs/assign_kt')}?ktid="+bid+"\'></iframe>";
                 popup.setTitle('指定学生').setCss({marginTop:'50px',width:'530px',height:'400px'}).setBodyCss({height:'100%'}).setBody(link_edit_html).show();
-                $( "#log" ).html( "clicked: " + e.target.nodeName );
-                //alert(e.target.getAttribute('kt_id'));
             });
 
 
@@ -411,14 +407,15 @@
 
                     </div>
                     <input type="button" name="teacher-sort" id="teacher-sort" class="button bg-main" style="margin-left:10px" value="按教师排序" onclick="javascript:sort_onclick();"/>
-                    <input type="button" name="printall" id="printall" class="button bg-main" style="margin-left:10px" value="批量打印" onclick="javascript:print_all();"/>
+                    <input type="button" name="printall" id="printall" class="button bg-main" style="margin-left:10px" value="报审表" onclick="javascript:print_all();"/>
+                    <input type="button" name="printall" id="printall" class="button bg-main" style="margin-left:10px" value="任务书" onclick="javascript:print2_all();"/>
                     <!--结果区域--->
                     <div class='right-result'>
                         <div class='right-result-head'></div>
                         <div class='right-result-body'>
                             <table class="table table-hover search-result-table" id="show-table"><tr class='th'>
                                 <thread>
-                                    <th>课题名</th><th>指导老师</th><th>所属研究所</th><th>选题学生</th></tr>
+                                    <th>课题名</th><th>指导老师</th><th>所属研究所</th><th>选题学生</th><th>操作</th></tr>
                                 </thread>
                             </table>
                             <!---start-->
@@ -480,6 +477,22 @@
                                 str_arr=str_arr+oTab[i].getAttribute('data_id')+"_";
                             }
                             window.location.assign("/index.php/Home/Bs/viewkt.html?bid="+str_arr);
+                        };
+
+                        function print2_all(){
+                            /*for(var i=0;i<oTab.length;i++)
+                            {
+                                alert("第"+(i+1)+"个的ID="+oTab[i]);
+                            }*/
+                            var oTab=document.getElementsByClassName("viewkt");    //获取表格
+                            //alert("length is"+oTab.length);
+                            var str_arr = "";
+                            for (var i=0;i<oTab.length;i++)
+                            {
+                                //oTab[i]=oTab[i].getAttribute('data_id');
+                                str_arr=str_arr+oTab[i].getAttribute('data_id')+"_";
+                            }
+                            window.location.assign("/index.php/Home/Bs/viewrw.html?bid="+str_arr);
                         };
                 </script>
 

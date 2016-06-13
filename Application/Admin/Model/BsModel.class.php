@@ -10,7 +10,7 @@ class BsModel extends Model{
 		public function queryStudentNum($t){
 				$num = 0;
 				if($t==1){	//查询已选课题的学生人数
-					$sql = "select count(*) from bs_xt";
+					$sql = "select count(*) from bs_xt group by sid";
 				}else{			//查询所有
 					$sql = "select count(*) from user_student";
 				}
@@ -27,9 +27,9 @@ class BsModel extends Model{
 		
 		public function queryKtNum($t){
 				if($t==1){
-					$sql = "select count(*) from bs_kt where status=2";
+					$sql = "select count(*) from bs_kt where status=3";
 				}else{
-					$sql = "select count(*) from bs_kt where status=1";
+					$sql = "select count(*) from bs_kt";
 				}
 				$model = new \Think\Model();
 				$rs = $model->query($sql);
@@ -78,6 +78,77 @@ class BsModel extends Model{
 		return $rs;
 	}
 		
-	
+
+
+
+
+
+
+
+//验证学号是否正确，并未选课题
+        public function check_s($sid){
+        $model_user = M('user_student');
+        $model_xt = M('bs_xt');
+        /**
+        *1账号不存在或不可用
+        *2已选课题
+        */
+        if($model_user->where("status=1 and user='$sid'")->count()==0)return 1;
+        if($model_xt->where("sid='$sid'")->count())return 2;
+        return 3;
+        
+        }
+        
+        //验证课题是否可选
+        public function check_kt($ktId){
+        $model_kt = M('bs_kt');
+        $model_xt = M('bs_xt');
+        /**
+        *4课题未通过院系审核或不存在
+        ＊５课题已被选
+        */
+        if($model_kt->where("id='$ktId' and status=3")->count()==0)return 4;
+        if($model_xt->where("bid='$ktId'")->count()!=0)return 5;
+        return 6;
+        }
+        public function xt($sid,$ktId){
+        //先验证学号是否正确并且可选
+        $rs = array(
+        'status'=>1,
+        'msg'=>'操作成功'
+        );
+        $cs = $this->check_s($sid);
+        if($cs==3){
+        $bs = $this->check_kt($ktId);
+    if($bs==6){
+        //绑定
+        $this->bindkt($sid,$ktId);
+        }else{
+        //课题错误
+        $rs['status'] = 0;
+        if($bs==4)$rs['msg']="课题未通过审核或不存在！";
+        else if($bs==5)$rs['msg']="课题已被选！";
+        }
+        }else{
+        //学号错误
+        $rs['status'] = 0;
+        if($cs==1)$rs['msg']="学号不正确或者处于禁用状态";
+        else if($cs==2)$rs['msg']="该生已选有其它课题，无法继续选择！";
+        }
+        return $rs;
+        }
+        
+        ////绑定课题
+        public function bindkt($sid,$bid){
+        $model = M('bs_xt');
+        $data = array(
+        'bid'=>$bid,
+        'sid'=>$sid,
+        'time'=>date('Y-m-d H:i:s')
+        );
+        $model->data($data)->add();
+        
+        }
+        
 }
 ?>
